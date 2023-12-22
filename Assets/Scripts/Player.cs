@@ -22,13 +22,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
-        
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
+
+        if(Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
         {
-            _canFire = Time.time + _fireRate;
-            
-            Instantiate(_laserPrefab, transform.position + new Vector3(0, 1f, 0), Quaternion.identity);
+            FireLaser();
         }
+
     }
 
     // Player movement and boundry limits
@@ -51,5 +50,11 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(-9, transform.position.y, 0);
         }
+    }
+    //Rate or fire for laser prefab
+    void FireLaser()
+    {
+        _canFire = Time.time + _fireRate;
+        Instantiate(_laserPrefab, transform.position + new Vector3(0, 1f, 0), Quaternion.identity);
     }
 }
