@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 3.5f;
-
+    [SerializeField]
+    private GameObject _laserPrefab;
 
     void Start()
     {
@@ -17,6 +18,17 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        CalculateMovement();
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+        }
+    }
+
+    // Player movement and boundry limits
+    void CalculateMovement()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -24,14 +36,7 @@ public class Player : MonoBehaviour
 
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        if (transform.position.y >= 1)
-        {
-            transform.position = new Vector3(transform.position.x, 1, 0);
-        }
-        else if (transform.position.y <= -3.8f)
-        {
-            transform.position = new Vector3(transform.position.x, -3.8f, 0);
-        }
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 1), 0);
 
         if (transform.position.x >= 9)
         {
