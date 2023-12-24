@@ -20,7 +20,28 @@ public class Enemy : MonoBehaviour
         if (transform.position.y < -5f)
         {
             float randomX = Random.Range(-8.5f, 8.5f);
-            transform.position = new Vector3(randomX, 8, 0);
+            transform.position = new Vector3(randomX, 9, 0);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.tag == "Player")
+        {
+            Player player = other.transform.GetComponent<Player>();
+
+            if (player != null)
+            {
+                player.Damage();
+            }
+            Destroy(this.gameObject);
+        }
+
+        if (other.tag == "Laser")
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
