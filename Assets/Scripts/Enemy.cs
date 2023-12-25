@@ -7,11 +7,6 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private float _speed = 5.0f;
-    void Start()
-    {
-        
-    }
-
     
     void Update()
     {
@@ -24,11 +19,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        
         if (other.tag == "Player")
-        {
+        {   
             Player player = other.transform.GetComponent<Player>();
 
             if (player != null)
