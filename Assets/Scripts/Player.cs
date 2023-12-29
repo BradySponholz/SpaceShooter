@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     {
         CalculateMovement();
 
-        if(Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
+        if(Input.GetMouseButtonDown(0) && Time.time > _canFire)
         {
             FireLaser();
         }
@@ -51,20 +51,14 @@ public class Player : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 5), 0);
 
-        if (transform.position.x >= 9)
-        {
-            transform.position = new Vector3(9, transform.position.y, 0);
-        }
-        else if (transform.position.x <= -9)
-        {
-            transform.position = new Vector3(-9, transform.position.y, 0);
-        }
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9, 9), transform.position.y, 0);
     }
+
     //Rate or fire for laser prefab
     void FireLaser()
     {
         _canFire = Time.time + _fireRate;
-        Instantiate(_laserPrefab, transform.position + new Vector3(0, 1f, 0), Quaternion.identity);
+        Instantiate(_laserPrefab, transform.position + new Vector3(0, .85f, 0), Quaternion.identity);
     }
 
     public void Damage()

@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy1 : MonoBehaviour
 {
-
     [SerializeField]
-    private float _speed = 5.0f;
-    
+    private float _speed = 3.0f;
+    [SerializeField]
+    private int _lives = 2;
+
     void Update()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
@@ -22,7 +23,7 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
-        {   
+        {
             Player player = other.transform.GetComponent<Player>();
 
             if (player != null)
@@ -35,6 +36,16 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Laser")
         {
             Destroy(other.gameObject);
+            Damage();
+        }
+    }
+
+    public void Damage()
+    {
+        _lives--;
+
+        if (_lives < 1)
+        {
             Destroy(this.gameObject);
         }
     }
