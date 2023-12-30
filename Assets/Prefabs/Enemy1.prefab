@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: -1229576087944327033}
   - component: {fileID: 4882137311017190602}
   - component: {fileID: -5799453505068679753}
-  - component: {fileID: 2777357204435541995}
   - component: {fileID: 5977320353007690731}
+  - component: {fileID: 6511203085717155595}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -123,8 +123,35 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &2777357204435541995
-BoxCollider2D:
+--- !u!50 &5977320353007690731
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202252690017249589}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &6511203085717155595
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,7 +182,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0030068755, y: 0.024055004}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -165,33 +192,24 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5970732, y: 0.71133566}
-  m_EdgeRadius: 0
---- !u!50 &5977320353007690731
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202252690017249589}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.29759997, y: 0.003427744}
+      - {x: 0.13106346, y: 0.09994714}
+      - {x: 0.09071641, y: 0.23615608}
+      - {x: 0.1235501, y: 0.36537537}
+      - {x: -0.00026390888, y: 0.3628696}
+      - {x: -0.13449465, y: 0.35865006}
+      - {x: -0.0726527, y: 0.2296946}
+      - {x: -0.11827493, y: 0.10060525}
+      - {x: -0.17708334, y: 0.09375}
+      - {x: -0.29984164, y: 0.011338398}
+      - {x: -0.29338056, y: 0.013844177}
+      - {x: -0.30603892, y: -0.058280468}
+      - {x: -0.15400831, y: -0.06553}
+      - {x: -0.12473604, y: -0.3030053}
+      - {x: 0.12473604, y: -0.3030053}
+      - {x: 0.14530551, y: -0.07818812}
+      - {x: 0.1460973, y: -0.07977192}
+      - {x: 0.30603892, y: -0.07120292}
+  m_UseDelaunayMesh: 0
