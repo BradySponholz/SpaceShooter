@@ -7,15 +7,17 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private float _speed = 5.0f;
-    
+    [SerializeField]
+    private int _lives = 2;
+
     void Update()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
-        if (transform.position.y < -5f)
+        if (transform.position.y < -8f)
         {
-            float randomX = Random.Range(-8.5f, 8.5f);
-            transform.position = new Vector3(randomX, 9, 0);
+            float randomX = Random.Range(-9f, 9f);
+            transform.position = new Vector3(randomX, 12, 0);
         }
     }
 
@@ -35,6 +37,16 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Laser")
         {
             Destroy(other.gameObject);
+            Damage();
+        }
+    }
+
+    public void Damage()
+    {
+        _lives--;
+
+        if (_lives < 1)
+        {
             Destroy(this.gameObject);
         }
     }

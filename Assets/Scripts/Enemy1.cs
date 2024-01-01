@@ -7,16 +7,16 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]
     private float _speed = 3.0f;
     [SerializeField]
-    private int _lives = 2;
+    private int _lives = 5;
 
     void Update()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
-        if (transform.position.y < -5f)
+        if (transform.position.y < -8f)
         {
-            float randomX = Random.Range(-8.5f, 8.5f);
-            transform.position = new Vector3(randomX, 9, 0);
+            float randomX = Random.Range(-9f, 9f);
+            transform.position = new Vector3(randomX, 12, 0);
         }
     }
 

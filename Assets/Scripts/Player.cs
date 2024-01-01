@@ -10,11 +10,9 @@ public class Player : MonoBehaviour
     private float _speed = 3.5f;
     [SerializeField]
     private GameObject _laserPrefab;
+    private bool _canAutoFire = false;
     [SerializeField]
-    private float _fireRate = .2f;
-    private float _canFire = -1f;
-    [SerializeField]
-    private int _lives = 3;
+    private int _lives = 5;
     private SpawnManager _spawnManager;
 
     void Start()
@@ -26,17 +24,29 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("The Spawn Manager is NULL.");
         }
+
     }
 
     void Update()
     {
         CalculateMovement();
+        AutoFire();
+    }
 
-        if(Input.GetMouseButtonDown(0) && Time.time > _canFire)
+    //Autofire Coroutine on MouseButton Hold
+    void AutoFire()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            FireLaser();
+            _canAutoFire = true;
+            StartCoroutine(FireLaser());
         }
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            _canAutoFire = false;
+            StopCoroutine(FireLaser());
+        }
     }
 
     // Player movement and boundry limits
@@ -49,16 +59,19 @@ public class Player : MonoBehaviour
 
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 5), 0);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 5), 0);
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9, 9), transform.position.y, 0);
     }
 
-    //Rate or fire for laser prefab
-    void FireLaser()
+    //laser prefab while loop on mouse button down
+    IEnumerator FireLaser()
     {
-        _canFire = Time.time + _fireRate;
-        Instantiate(_laserPrefab, transform.position + new Vector3(0, .85f, 0), Quaternion.identity);
+        while (_canAutoFire == true)
+        {
+            yield return new WaitForSeconds(.1f);
+            Instantiate(_laserPrefab, transform.position + new Vector3(0, .85f, 0), Quaternion.identity);
+        }
     }
 
     public void Damage()
