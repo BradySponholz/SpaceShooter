@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
     private float _speed = 3.5f;
     [SerializeField]
     private GameObject _laserPrefab;
-    private bool _canAutoFire = false;
+    public float fireRate = .25f;
+    private float _nextFire = .25f;
+    private float _playerTime = 0.0f;
     [SerializeField]
     private int _lives = 5;
     private SpawnManager _spawnManager;
@@ -33,19 +35,19 @@ public class Player : MonoBehaviour
         AutoFire();
     }
 
-    //Autofire Coroutine on MouseButton Hold
+    //Autofire on MouseButton Hold
     void AutoFire()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            _canAutoFire = true;
-            StartCoroutine(FireLaser());
-        }
+        _playerTime = _playerTime + Time.deltaTime;
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetButton("Fire1") && _playerTime > _nextFire)
         {
-            _canAutoFire = false;
-            StopCoroutine(FireLaser());
+            _nextFire = _playerTime + fireRate;
+            
+            Instantiate(_laserPrefab, transform.position + new Vector3(0, .85f, 0), Quaternion.identity);
+
+            _nextFire = _nextFire - _playerTime;
+            _playerTime = 0.0F;
         }
     }
 
@@ -62,16 +64,6 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 5), 0);
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9, 9), transform.position.y, 0);
-    }
-
-    //laser prefab while loop on mouse button down
-    IEnumerator FireLaser()
-    {
-        while (_canAutoFire == true)
-        {
-            yield return new WaitForSeconds(.1f);
-            Instantiate(_laserPrefab, transform.position + new Vector3(0, .85f, 0), Quaternion.identity);
-        }
     }
 
     public void Damage()
