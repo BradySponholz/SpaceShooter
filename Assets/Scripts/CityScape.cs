@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CityScape : MonoBehaviour
 {
-    public float speed;
-    public float end;
-    public float start;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float end;
+    [SerializeField]
+    private float start;
 
     private void Update()
     {
