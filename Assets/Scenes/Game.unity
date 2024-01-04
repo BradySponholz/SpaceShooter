@@ -23337,7 +23337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 15
   _laserPrefab: {fileID: 6275440617059496135, guid: c0cebab801aea8845bcc0f915fb550a1, type: 3}
-  _lives: 5
+  fireRate: 0.2
+  _lives: 3
 --- !u!212 &330980751
 SpriteRenderer:
   m_ObjectHideFlags: 0

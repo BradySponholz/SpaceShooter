@@ -10,11 +10,11 @@ public class Player : MonoBehaviour
     private float _speed = 3.5f;
     [SerializeField]
     private GameObject _laserPrefab;
-    public float fireRate = .25f;
-    private float _nextFire = .25f;
+    public float fireRate = .2f;
+    private float _nextFire = .2f;
     private float _playerTime = 0.0f;
     [SerializeField]
-    private int _lives = 5;
+    private int _lives = 3;
     private SpawnManager _spawnManager;
 
     void Start()
