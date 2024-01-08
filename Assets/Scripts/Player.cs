@@ -11,11 +11,14 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
+    private GameObject _doubleShot;
+    [SerializeField]
     private float _fireRate = .2f;
     private float _nextFire = .2f;
     [SerializeField]
     private int _lives = 3;
     private SpawnManager _spawnManager;
+    private bool _isDoubleShotActive = false;
 
     void Start()
     {
@@ -54,7 +57,15 @@ public class Player : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
-            Instantiate(_laserPrefab, transform.position + new Vector3(0, .85f, 0), Quaternion.identity);
+
+            if (_isDoubleShotActive == true)
+            {
+                Instantiate(_doubleShot, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(_laserPrefab, transform.position + new Vector3(0, .85f, 0), Quaternion.identity);
+            }
         }
     }
 
