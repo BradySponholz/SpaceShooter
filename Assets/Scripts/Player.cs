@@ -72,11 +72,17 @@ public class Player : MonoBehaviour
     public void Damage()
     {
         _lives--;
+        _isDoubleShotActive = false;
 
         if (_lives < 1)
         {
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
+    }
+
+    public void DoubleShotActive()
+    {
+        _isDoubleShotActive = true;
     }
 }
