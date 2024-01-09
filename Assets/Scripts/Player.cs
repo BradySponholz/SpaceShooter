@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                Instantiate(_laserPrefab, transform.position + new Vector3(0, .85f, 0), Quaternion.identity);
+                Instantiate(_laserPrefab, transform.position, Quaternion.identity);
             }
         }
     }
