@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1154868136953693783}
+  - component: {fileID: -4058694687337058028}
   m_Layer: 0
   m_Name: Double_Shot
   m_TagString: Laser
@@ -33,6 +34,19 @@ Transform:
   - {fileID: 6438458649095707593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4058694687337058028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097820031740810264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7e61f6d7542e44181273e422a3bf27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 18
 --- !u!1001 &6155793071773317785
 PrefabInstance:
   m_ObjectHideFlags: 0
