@@ -7,10 +7,8 @@ public class Powerup : MonoBehaviour
     [SerializeField]
     private float _speed = 3.0f;
 
-    void Start()
-    {
-        
-    }
+    [SerializeField] //0 = DoubleShot, 1 = SpeedShot, 2 = Shields
+    private int _powerupID;
 
 
     void Update()
@@ -31,7 +29,18 @@ public class Powerup : MonoBehaviour
 
             if (player != null)
             {
-                player.DoubleShotActive();
+                if (_powerupID == 0)
+                {
+                    player.DoubleShotActive();
+                }
+                else if (_powerupID == 1)
+                {
+                    player.SpeedShotActive();
+                }
+                else if (_powerupID == 2)
+                {
+                    player.ShieldActive();
+                }
             }
             Destroy(this.gameObject);
         }

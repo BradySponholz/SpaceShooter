@@ -13,12 +13,18 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _doubleShot;
     [SerializeField]
-    private float _fireRate = .2f;
-    private float _nextFire = .2f;
+    private GameObject _shield;
+    [SerializeField]
+    private float _fireRate = .3f;
+    private float _nextFire = .3f;
+    [SerializeField]
+    private float _fireSpeedBoost = 2.5f;
     [SerializeField]
     private int _lives = 3;
     private SpawnManager _spawnManager;
     private bool _isDoubleShotActive = false;
+    private bool _isSpeedShotActive = false;
+    private bool _isShieldActive = false;
 
     void Start()
     {
@@ -56,8 +62,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButton("Fire1") && Time.time > _nextFire)
         {
-            _nextFire = Time.time + _fireRate;
-
             if (_isDoubleShotActive == true)
             {
                 Instantiate(_doubleShot, transform.position, Quaternion.identity);
@@ -66,6 +70,15 @@ public class Player : MonoBehaviour
             {
                 Instantiate(_laserPrefab, transform.position, Quaternion.identity);
             }
+
+            if (_isSpeedShotActive == true)
+            {
+                _nextFire = Time.time + _fireRate / _fireSpeedBoost;
+            }
+            else
+            {
+                _nextFire = Time.time + _fireRate;
+            }
         }
     }
 
@@ -73,6 +86,7 @@ public class Player : MonoBehaviour
     {
         _lives--;
         _isDoubleShotActive = false;
+        _isSpeedShotActive = false;
 
         if (_lives < 1)
         {
@@ -84,5 +98,16 @@ public class Player : MonoBehaviour
     public void DoubleShotActive()
     {
         _isDoubleShotActive = true;
+    }
+
+    public void SpeedShotActive()
+    {
+        _isSpeedShotActive = true;
+    }
+
+    public void ShieldActive()
+    {
+        _isShieldActive = true;
+        Instantiate(_shield, transform.position, Quaternion.identity);
     }
 }
