@@ -23615,7 +23615,10 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 8905941802248987715, guid: 84adca55451be4d45bb3c4c4b7233ded, type: 3}
   _enemyPrefab1: {fileID: 3202252690017249589, guid: 2e9230592e4024b4f97e829a6892279f, type: 3}
   _enemyContainer: {fileID: 1744892102}
-  _shotPowerupPrefab: {fileID: 5205942107348079096, guid: 59ec0140e8c68904f834e06759f1720a, type: 3}
+  _powerupContainer: {fileID: 1891256065}
+  _powerups:
+  - {fileID: 5205942107348079096, guid: 59ec0140e8c68904f834e06759f1720a, type: 3}
+  - {fileID: 8962692550017475152, guid: c185fa6b148e9924e875bb478d60a0b7, type: 3}
 --- !u!4 &741252267
 Transform:
   m_ObjectHideFlags: 0
@@ -23630,6 +23633,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1744892103}
+  - {fileID: 1891256066}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1744892102
@@ -23655,6 +23659,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744892102}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 741252267}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1891256065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891256066}
+  m_Layer: 0
+  m_Name: Powerup_Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891256066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891256065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
