@@ -29,17 +29,20 @@ public class Powerup : MonoBehaviour
 
             if (player != null)
             {
-                if (_powerupID == 0)
+                switch (_powerupID)
                 {
-                    player.DoubleShotActive();
-                }
-                else if (_powerupID == 1)
-                {
-                    player.SpeedShotActive();
-                }
-                else if (_powerupID == 2)
-                {
-                    player.ShieldActive();
+                    case 0:
+                        player.DoubleShotActive();
+                        break;
+                    case 1:
+                        player.SpeedShotActive();
+                        break;
+                    case 2:
+                        player.ShieldActive();
+                        break;
+                    default:
+                        Debug.Log("default Value");
+                        break;
                 }
             }
             Destroy(this.gameObject);
