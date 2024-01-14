@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private bool _isSpeedShotActive = false;
     private bool _isShieldActive = false;
 
+
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
@@ -84,6 +85,13 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
+        if (_isShieldActive == true)
+        {
+            _isShieldActive = false;
+            _shield.SetActive(false);
+            return;
+        }
+
         _lives--;
         _isDoubleShotActive = false;
         _isSpeedShotActive = false;
@@ -108,6 +116,6 @@ public class Player : MonoBehaviour
     public void ShieldActive()
     {
         _isShieldActive = true;
-        Instantiate(_shield, transform.position, Quaternion.identity);
+        _shield.SetActive(true);
     }
 }

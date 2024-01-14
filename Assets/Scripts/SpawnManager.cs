@@ -59,15 +59,15 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnPowerupRoutine()
     {
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(15f);
 
         while (_stopSpawning == false)
         {
-            int randomPowerup = Random.Range(0, 1);
+            int randomPowerup = Random.Range(0, 3);
             Vector3 posToSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 9, 0);
             GameObject newPowerup = Instantiate(_powerups[randomPowerup], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
-            yield return new WaitForSeconds(30f);
+            yield return new WaitForSeconds(20f);
         }
     }
 }
