@@ -9,6 +9,12 @@ public class Enemy : MonoBehaviour
     private float _speed = 5.0f;
     [SerializeField]
     private int _lives = 2;
+    private Player _player;
+
+    void Start()
+    {
+        _player = GameObject.Find("Player").GetComponent<Player>();
+    }
 
     void Update()
     {
@@ -47,6 +53,10 @@ public class Enemy : MonoBehaviour
 
         if (_lives < 1)
         {
+            if (_player != null)
+            {
+                _player.AddScore(10);
+            }
             Destroy(this.gameObject);
         }
     }
