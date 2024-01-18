@@ -104,6 +104,8 @@ public class Player : MonoBehaviour
         _isDoubleShotActive = false;
         _isSpeedShotActive = false;
 
+        _uiManager.UpdateLife(_lives);
+
         if (_lives < 1)
         {
             _spawnManager.OnPlayerDeath();
