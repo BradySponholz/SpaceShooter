@@ -91,6 +91,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Damage behavior
     public void Damage()
     {
         if (_isShieldActive == true)
@@ -113,6 +114,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Powerup behaviors
     public void DoubleShotActive()
     {
         _isDoubleShotActive = true;
@@ -129,6 +131,7 @@ public class Player : MonoBehaviour
         _shield.SetActive(true);
     }
 
+    //Playerscore
     public void AddScore(int points)
     {
         _score += points;
