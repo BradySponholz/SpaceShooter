@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ public class UIManager : MonoBehaviour
     private TMP_Text _gameOverText;
     [SerializeField]
     private TMP_Text _restartText;
+    [SerializeField]
+    private TMP_Text _getReadyText;
     private GameManager _gameManager;
 
     void Start()
@@ -24,7 +27,10 @@ public class UIManager : MonoBehaviour
         _scoreText.text = "Score: " + _scoreLength;
         _gameOverText.gameObject.SetActive(false);
         _restartText.gameObject.SetActive(false);
+        _getReadyText.gameObject.SetActive(true);
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+
+        StartCoroutine(GetReadyFlicker());
 
         if (_gameManager == null)
         {
@@ -32,7 +38,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    
     public void UpdateScore(int playerScore)
     {
         _scoreText.text = "Score: " + playerScore.ToString(_scoreLength);
@@ -46,6 +51,12 @@ public class UIManager : MonoBehaviour
         {
             GameOverSequence();
         }
+    }
+
+    public void Ready()
+    {
+        _getReadyText.gameObject.SetActive(false);
+        StopCoroutine(GetReadyFlicker());
     }
 
     void GameOverSequence()
@@ -71,5 +82,16 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         _restartText.gameObject.SetActive(true);
+    }
+
+    IEnumerator GetReadyFlicker()
+    {
+        while (true)
+        {
+            _getReadyText.text = "GET READY";
+            yield return new WaitForSeconds(0.5f);
+            _getReadyText.text = "";
+            yield return new WaitForSeconds(0.5f);            
+        }
     }
 }

@@ -14,11 +14,14 @@ public class SpawnManager : MonoBehaviour
     private GameObject _powerupContainer;
     [SerializeField]
     private GameObject[] _powerups;
+    private UIManager _uiManager;
 
     private bool _stopSpawning = false;
     
     void Start()
     {
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
         StartCoroutine(SpawnEnemyRoutine());
         StartCoroutine(SpawnEnemyRoutine1());
         StartCoroutine(SpawnPowerupRoutine());
@@ -31,6 +34,9 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemyRoutine()
     {
+        yield return new WaitForSeconds(5f);
+        _uiManager.Ready();
+
         while (_stopSpawning == false)
         {
             Vector3 posToSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 9, 0);
@@ -44,6 +50,8 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemyRoutine1()
     {
+        yield return new WaitForSeconds(5f);
+
         while (_stopSpawning == false)
         {
             Vector3 posToSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 9, 0);
