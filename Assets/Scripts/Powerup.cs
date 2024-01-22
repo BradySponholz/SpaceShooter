@@ -43,6 +43,8 @@ public class Powerup : MonoBehaviour
                         Debug.Log("default Value");
                         break;
                 }
+
+                player.AddScore(50);
             }
             Destroy(this.gameObject);
         }
