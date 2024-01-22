@@ -32,6 +32,7 @@ public class SpawnManager : MonoBehaviour
         
     }
 
+    //Contains communication that stops GetReadyFlicker()
     IEnumerator SpawnEnemyRoutine()
     {
         yield return new WaitForSeconds(5f);
