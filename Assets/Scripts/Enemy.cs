@@ -10,10 +10,28 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private int _lives = 2;
     private Player _player;
+    private Animator _explosion;
+    private PolygonCollider2D _collider;
 
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
+        if (_player == null)
+        {
+            Debug.LogError("The Player is NULL.");
+        }
+
+        _explosion = GetComponent<Animator>();
+        if (_explosion == null)
+        {
+            Debug.LogError("The animator is NULL.");
+        }
+
+        _collider = GetComponent<PolygonCollider2D>();
+        if (_collider == null)
+        {
+            Debug.LogError("The collider is NULL.");
+        }
     }
 
     void Update()
@@ -36,8 +54,8 @@ public class Enemy : MonoBehaviour
             if (player != null)
             {
                 player.Damage();
+                ObjectDeath();
             }
-            Destroy(this.gameObject);
         }
 
         if (other.tag == "Laser")
@@ -56,8 +74,15 @@ public class Enemy : MonoBehaviour
             if (_player != null)
             {
                 _player.AddScore(10);
+                ObjectDeath();
             }
-            Destroy(this.gameObject);
         }
+    }
+
+    public void ObjectDeath()
+    {
+        _explosion.SetTrigger("EnemyDeath");
+        _collider.enabled = false;
+        Destroy(this.gameObject, 0.5f);
     }
 }

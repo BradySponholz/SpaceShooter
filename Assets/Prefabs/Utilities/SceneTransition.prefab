@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 265121181744397656}
   - component: {fileID: 7984318421290009692}
   - component: {fileID: 5109968052944454118}
-  - component: {fileID: 5832156121635548914}
+  - component: {fileID: 3643556692660254852}
   m_Layer: 0
   m_Name: ShipC
   m_TagString: Untagged
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8706445992524747025, guid: f3e9c9888dcbc5648a3b7312bb81a28f, type: 3}
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &5832156121635548914
+--- !u!95 &3643556692660254852
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ Animator:
   m_GameObject: {fileID: 67940043161323262}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4dc56e8b7d823674f9d2ce24f4ebd18d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f1a1a97cb51e3e47a5febe227418d6c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 1926613891546402926}
   - component: {fileID: 40883026188539830}
   - component: {fileID: 3613363042295017216}
-  - component: {fileID: 7884540035421723487}
+  - component: {fileID: 8060076284982785147}
   m_Layer: 0
   m_Name: ShipA
   m_TagString: Untagged
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8706445992524747025, guid: f3e9c9888dcbc5648a3b7312bb81a28f, type: 3}
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &7884540035421723487
+--- !u!95 &8060076284982785147
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ Animator:
   m_GameObject: {fileID: 558153197756146299}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5c47af267a25dff4ca6cc7368beef5a9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f1a1a97cb51e3e47a5febe227418d6c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 3929685674557176040}
   - component: {fileID: 7348634242054617292}
   - component: {fileID: 8321084557218538606}
-  - component: {fileID: 7170429958737215786}
+  - component: {fileID: 8351558261366464023}
   m_Layer: 0
   m_Name: Ship1C
   m_TagString: Untagged
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8706445992524747025, guid: f3e9c9888dcbc5648a3b7312bb81a28f, type: 3}
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &7170429958737215786
+--- !u!95 &8351558261366464023
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ Animator:
   m_GameObject: {fileID: 2546234387888910228}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4361bbbe12f8e07498289019a044a47d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f1a1a97cb51e3e47a5febe227418d6c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 92039536145604886}
   - component: {fileID: 8524687925289465465}
   - component: {fileID: 2444105231979768184}
-  - component: {fileID: 5274379289534625829}
+  - component: {fileID: 4301267663032720433}
   m_Layer: 0
   m_Name: Ship1B
   m_TagString: Untagged
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8706445992524747025, guid: f3e9c9888dcbc5648a3b7312bb81a28f, type: 3}
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &5274379289534625829
+--- !u!95 &4301267663032720433
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -377,7 +377,7 @@ Animator:
   m_GameObject: {fileID: 2581842268311298690}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 316195b9a6903aa45b303208db925ac1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f1a1a97cb51e3e47a5febe227418d6c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 1196255594442214335}
   - component: {fileID: 5108303708625192407}
   - component: {fileID: 3066256106057642483}
-  - component: {fileID: 2578701330271620705}
+  - component: {fileID: 2704704101628457151}
   m_Layer: 0
   m_Name: ShipD
   m_TagString: Untagged
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8706445992524747025, guid: f3e9c9888dcbc5648a3b7312bb81a28f, type: 3}
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &2578701330271620705
+--- !u!95 &2704704101628457151
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -474,7 +474,7 @@ Animator:
   m_GameObject: {fileID: 2651675194292275076}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 50b4b9632f7df1a41a3fb44721965e37, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f1a1a97cb51e3e47a5febe227418d6c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 7804085211760162243}
   - component: {fileID: 29098049536417542}
   - component: {fileID: 1980439205234764215}
+  - component: {fileID: 7378008696130418261}
   m_Layer: 0
   m_Name: FlyInTransition
   m_TagString: Untagged
@@ -513,9 +514,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3037460306318877810}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3575, y: 1.3575, z: 1.3575}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 594703101448361023}
@@ -525,9 +526,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 83.07532, y: -151.84045}
-  m_SizeDelta: {x: 800, y: 450.0921}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!223 &7104803217599685431
 Canvas:
   m_ObjectHideFlags: 0
@@ -624,6 +625,58 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!212 &7378008696130418261
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037460306318877810}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 3, y: 3}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &3562696632456209250
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +688,7 @@ GameObject:
   - component: {fileID: 7213095213220610777}
   - component: {fileID: 266227500637861095}
   - component: {fileID: 6927904704235227464}
-  - component: {fileID: 8658740560812689348}
+  - component: {fileID: 3735949308731572548}
   m_Layer: 0
   m_Name: Ship1D
   m_TagString: Untagged
@@ -690,7 +743,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8706445992524747025, guid: f3e9c9888dcbc5648a3b7312bb81a28f, type: 3}
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -700,7 +753,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &8658740560812689348
+--- !u!95 &3735949308731572548
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -710,7 +763,7 @@ Animator:
   m_GameObject: {fileID: 3562696632456209250}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dd56b406350fdc64793fb61452c9fad4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f1a1a97cb51e3e47a5febe227418d6c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -745,9 +798,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4060378988841604019}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -61.197292, y: 111.85301, z: 0}
-  m_LocalScale: {x: 0.7366483, y: 0.7366483, z: 0.7366483}
+  m_LocalScale: {x: 0.6378128, y: 0.6378128, z: 0.6378128}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 346151542513854361}
@@ -764,7 +817,6 @@ GameObject:
   - component: {fileID: 8048817762117803653}
   - component: {fileID: 3940422395017991295}
   - component: {fileID: 8532028431285826584}
-  - component: {fileID: 1961734051161488589}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -792,7 +844,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -292.9}
+  m_AnchoredPosition: {x: 0, y: -302}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3940422395017991295
@@ -823,7 +875,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8706445992524747025, guid: f3e9c9888dcbc5648a3b7312bb81a28f, type: 3}
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -833,27 +885,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &1961734051161488589
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4771580251695296592}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 72e67dec7017b584191bf5ed9239ea22, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4817894669770114988
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +896,6 @@ GameObject:
   - component: {fileID: 7844537113253406413}
   - component: {fileID: 1756827491837111756}
   - component: {fileID: 3560778316049257965}
-  - component: {fileID: 2952145838099185953}
   m_Layer: 0
   m_Name: Ship1
   m_TagString: Untagged
@@ -924,7 +954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8706445992524747025, guid: f3e9c9888dcbc5648a3b7312bb81a28f, type: 3}
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -934,27 +964,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &2952145838099185953
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4817894669770114988}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a442430401b7dd545a5245f914b80f89, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5143936707478811693
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +975,7 @@ GameObject:
   - component: {fileID: 3826950682635716609}
   - component: {fileID: 8879789902735877640}
   - component: {fileID: 5016919536780330446}
-  - component: {fileID: 5284416337605289965}
+  - component: {fileID: 5441451827974906363}
   m_Layer: 0
   m_Name: ShipB
   m_TagString: Untagged
@@ -1021,7 +1030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8706445992524747025, guid: f3e9c9888dcbc5648a3b7312bb81a28f, type: 3}
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1031,7 +1040,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &5284416337605289965
+--- !u!95 &5441451827974906363
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -1041,7 +1050,7 @@ Animator:
   m_GameObject: {fileID: 5143936707478811693}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d948eaedbfdc38d4b981ea80e2d770c2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f1a1a97cb51e3e47a5febe227418d6c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1063,7 +1072,7 @@ GameObject:
   - component: {fileID: 3373988683783084518}
   - component: {fileID: 5750513573609697125}
   - component: {fileID: 1728641337914011155}
-  - component: {fileID: 8821399467164293756}
+  - component: {fileID: 6716444055008626585}
   m_Layer: 0
   m_Name: Ship1A
   m_TagString: Untagged
@@ -1118,7 +1127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8706445992524747025, guid: f3e9c9888dcbc5648a3b7312bb81a28f, type: 3}
+  m_Sprite: {fileID: 1485272447789644323, guid: 7f543ebd4da69934fa76d218d7506237, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1128,7 +1137,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &8821399467164293756
+--- !u!95 &6716444055008626585
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -1138,7 +1147,7 @@ Animator:
   m_GameObject: {fileID: 5182696449837956891}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 81fee068eaea8234c811390ab8780103, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f1a1a97cb51e3e47a5febe227418d6c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1183,7 +1192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.02}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -687}
+  m_AnchoredPosition: {x: -4, y: -702}
   m_SizeDelta: {x: 1000, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8242453668738167440
