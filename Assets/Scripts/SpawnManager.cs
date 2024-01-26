@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -14,18 +15,12 @@ public class SpawnManager : MonoBehaviour
     private GameObject _powerupContainer;
     [SerializeField]
     private GameObject[] _powerups;
-    private UIManager _uiManager;
 
     private bool _stopSpawning = false;
     
     void Start()
     {
-        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
-
-        StartCoroutine(SpawnEnemyRoutine());
-        StartCoroutine(SpawnEnemyRoutine1());
-        StartCoroutine(SpawnPowerupRoutine());
-        StartCoroutine(SpawnDefenseRoutine());
+        
     }
 
     void Update()
@@ -33,11 +28,19 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    //Contains communication that stops GetReadyFlicker()
+    public void Begin()
+    {
+        StartCoroutine(SpawnEnemyRoutine());
+        StartCoroutine(SpawnEnemyRoutine1());
+        StartCoroutine(SpawnPowerupRoutine());
+        StartCoroutine(SpawnDefenseRoutine());
+        return;
+    }
+
+   
     IEnumerator SpawnEnemyRoutine()
     {
-        yield return new WaitForSeconds(5f);
-        _uiManager.Ready();
+        yield return new WaitForSeconds(2f);
 
         while (_stopSpawning == false)
         {
@@ -52,7 +55,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemyRoutine1()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
 
         while (_stopSpawning == false)
         {
@@ -69,15 +72,13 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnPowerupRoutine()
     {
-        yield return new WaitForSeconds(15f);
-
         while (_stopSpawning == false)
         {
             int randomPowerup = Random.Range(1, 3);
             Vector3 posToSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 9, 0);
             GameObject newPowerup = Instantiate(_powerups[randomPowerup], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(15f);
         }
     }
 

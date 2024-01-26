@@ -83,6 +83,6 @@ public class Enemy1 : MonoBehaviour
     {
         _explosion.SetTrigger("EnemyDeath");
         _collider.enabled = false;
-        Destroy(this.gameObject, 0.5f);
+        Destroy(this.gameObject, 0.55f);
     }
 }
