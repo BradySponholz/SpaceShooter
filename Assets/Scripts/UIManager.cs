@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text _getReadyText;
     private GameManager _gameManager;
+    [SerializeField]
+    private GameObject _startEnemy;
 
     void Start()
     {
@@ -29,6 +31,8 @@ public class UIManager : MonoBehaviour
         _restartText.gameObject.SetActive(false);
         _getReadyText.gameObject.SetActive(true);
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+
+        Instantiate(_startEnemy, transform.position, Quaternion.identity);
 
         StartCoroutine(GetReadyFlicker());
 

@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class StartEnemy : MonoBehaviour
 {
     [SerializeField]
     private float _entrySpeed = 3.0f;
-    [SerializeField]
-    private float _sideScrollSpeed = 1.5f;
-    private bool _direction = true;
+    private float _finalSpeed = 0f;
     [SerializeField]
     private int _lives = 3;
     [SerializeField]
@@ -20,11 +19,10 @@ public class StartEnemy : MonoBehaviour
     private PolygonCollider2D _collider;
     private UIManager _uiManager;
     private SpawnManager _spawnManager;
-    private float _position;
 
     void Start()
     {
-        transform.position = new Vector3(0, 25, 0);
+        transform.position = new Vector3(0, 20, 0);
         
         _player = GameObject.Find("Player").GetComponent<Player>();
         if (_player == null)
@@ -62,23 +60,6 @@ public class StartEnemy : MonoBehaviour
     {
         transform.Translate(Vector3.down * _entrySpeed * Time.deltaTime);
         GameStart();
-
-        _position = transform.position.x;
-        if (transform.position.x < _position)
-        {
-            _animate.SetBool("MvLeft", true);
-        }
-
-        else if (transform.position.x > _position)
-        {
-            _animate.SetBool("MvRight", true);
-        }
-
-        else if (transform.position.x == _position)
-        {
-            _animate.SetBool("MvLeft", false);
-            _animate.SetBool("MvRight", false);
-        }
     }
 
     void GameStart()
@@ -88,38 +69,10 @@ public class StartEnemy : MonoBehaviour
             _uiManager.Ready();
         }
 
-        if (transform.position.y < 4.5f)
+        if (transform.position.y < 5.5f)
         {
-            _entrySpeed = 0;
-            SideToSide();
+            _entrySpeed = Mathf.Lerp(_entrySpeed, _finalSpeed, Time.deltaTime);
         }
-    }
-
-    void SideToSide()
-    {
-        if (_direction == true)
-        {
-            transform.Translate(Vector3.left * _sideScrollSpeed * Time.deltaTime);
-            if (transform.position.x < -2)
-            {
-                _sideScrollSpeed = 0;
-                _direction = false;
-                _sideScrollSpeed = 1.5f;
-            }
-        }
-
-        else if (_direction == false)
-        {
-            transform.Translate(Vector3.right * _sideScrollSpeed * Time.deltaTime);
-            if (transform.position.x > 2)
-            {
-                _sideScrollSpeed = 0;
-                _direction = true;
-                _sideScrollSpeed = 1.5f;
-            }
-        }
-
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
