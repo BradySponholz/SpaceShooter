@@ -11,7 +11,7 @@ public class StartEnemy : MonoBehaviour
     private float _entrySpeed = 3.0f;
     private float _finalSpeed = 0f;
     [SerializeField]
-    private int _lives = 3;
+    private int _lives = 1;
     [SerializeField]
     private GameObject[] _powerUp;
     private Player _player;
