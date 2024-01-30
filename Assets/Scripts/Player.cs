@@ -26,22 +26,54 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _score;
     private UIManager _uiManager;
+    private Animator _explosion;
+    private PolygonCollider2D _collider;
+    [SerializeField]
+    private AudioClip _laserClip;
+    [SerializeField]
+    private AudioClip _explosionClip;
+    [SerializeField]
+    private AudioSource _audioSource;
 
 
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
-        _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
-        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
+        _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
         if (_spawnManager == null)
         {
             Debug.LogError("The Spawn Manager is NULL.");
         }
+
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         if (_uiManager == null)
         {
             Debug.LogError("The UI Manager is Null.");
         }
+
+        _explosion = GetComponent<Animator>();
+        if (_explosion == null)
+        {
+            Debug.LogError("The animator is NULL.");
+        }
+
+        _collider = GetComponent<PolygonCollider2D>();
+        if (_collider == null)
+        {
+            Debug.LogError("The collider is NULL.");
+        }
+
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+        {
+            Debug.LogError("The AudioSource is NULL.");
+        }
+        else
+        {
+            _audioSource.clip = _laserClip;
+        }
+
 
     }
 
@@ -98,6 +130,7 @@ public class Player : MonoBehaviour
             {
                 _nextFire = Time.time + _fireRate;
             }
+            _audioSource.Play();
         }
     }
 
@@ -121,7 +154,10 @@ public class Player : MonoBehaviour
         if (_lives < 1)
         {
             _spawnManager.OnPlayerDeath();
-            Destroy(this.gameObject);
+            _explosion.SetTrigger("PlayerDeath");
+            AudioSource.PlayClipAtPoint(_explosionClip, transform.position);
+            _collider.enabled = false;
+            Destroy(this.gameObject, 0.55f);
         }
     }
 

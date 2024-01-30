@@ -19,6 +19,8 @@ public class StartEnemy : MonoBehaviour
     private PolygonCollider2D _collider;
     private UIManager _uiManager;
     private SpawnManager _spawnManager;
+    [SerializeField]
+    private AudioSource _audioSource;
 
     void Start()
     {
@@ -52,6 +54,12 @@ public class StartEnemy : MonoBehaviour
         if (_spawnManager == null)
         {
             Debug.LogError("The SpawnManager in NULL.");
+        }
+
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+        {
+            Debug.LogError("The AudioSource is NULL.");
         }
     }
 
@@ -112,6 +120,7 @@ public class StartEnemy : MonoBehaviour
     public void ObjectDeath()
     {
         _animate.SetTrigger("EnemyDeath");
+        _audioSource.Play();
         _collider.enabled = false;
         _spawnManager.Begin();
         Destroy(this.gameObject, 0.55f);

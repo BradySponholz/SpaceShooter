@@ -201,5 +201,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b4246d02e9ea342b219782d574c387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
   _powerupID: 1
+  _powerupClip: {fileID: 8300000, guid: 7404b2bcc2f8676418e1c93a01c7c7c5, type: 3}
