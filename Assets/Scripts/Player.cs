@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class Player : MonoBehaviour
 {
@@ -33,6 +35,8 @@ public class Player : MonoBehaviour
     private AudioClip _explosionClip;
     [SerializeField]
     private AudioSource _audioSource;
+    [SerializeField]
+    private InputActionReference _moveActionToUse;
 
 
     void Start()
@@ -88,8 +92,10 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
-
         transform.Translate(direction * _speed * Time.deltaTime);
+
+        Vector2 movementDirection = _moveActionToUse.action.ReadValue<Vector2>();
+        transform.Translate(movementDirection * _speed * Time.deltaTime);
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 5), 0);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9, 9), transform.position.y, 0);
