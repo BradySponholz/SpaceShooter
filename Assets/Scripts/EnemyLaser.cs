@@ -1,11 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyLaser : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 18.0f;
+    private float _speed = 5.0f;
+    private Player _player;
+    private Collider2D _collider;
+
+    private void Start()
+    {
+        _player = GameObject.Find("Player").GetComponent<Player>();
+        if (_player == null)
+        {
+            Debug.LogError("The Player is NULL.");
+        }
+
+        _collider = GetComponent<Collider2D>();
+        if (_collider == null)
+        {
+            Debug.LogError("The collider is NULL.");
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -14,11 +32,21 @@ public class EnemyLaser : MonoBehaviour
 
         if (transform.position.y < -8f)
         {
-            if (transform.parent != null)
-            {
-                Destroy(transform.parent.gameObject);
-            }
             Destroy(this.gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            Player player = other.transform.GetComponent<Player>();
+
+            if (player != null)
+            {
+                player.Damage();
+                Destroy(this.gameObject);
+            }
         }
     }
 }

@@ -48,8 +48,7 @@ public class Enemy : MonoBehaviour
 
         if (transform.position.y < -8f)
         {
-            float randomX = Random.Range(-9f, 9f);
-            transform.position = new Vector3(randomX, 12, 0);
+            Destroy(this.gameObject);
         }
     }
 

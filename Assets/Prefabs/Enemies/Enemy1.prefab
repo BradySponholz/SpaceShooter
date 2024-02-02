@@ -50,9 +50,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9c3e37443994248a1b12309167f8c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 2
   _lives: 5
   _audioSource: {fileID: 4675630245131253341}
+  _enemyShot: {fileID: 8800936204866830838, guid: 89b93d4d2ba8d694c8ec9af69c786ec8, type: 3}
+  _fireRate: 1.5
 --- !u!212 &4882137311017190602
 SpriteRenderer:
   m_ObjectHideFlags: 0
