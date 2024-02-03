@@ -22,7 +22,8 @@ public class UIManager : MonoBehaviour
     private TMP_Text _getReadyText;
     private GameManager _gameManager;
     [SerializeField]
-    private GameObject _startEnemy;
+    private GameObject _startEnemy;    
+    
 
     void Start()
     {

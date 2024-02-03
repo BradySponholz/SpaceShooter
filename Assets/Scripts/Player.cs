@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject[] _shotType;
     [SerializeField]
+    private GameObject[] _timer;
+    private GameObject _sTimer;
+    [SerializeField]
     private GameObject _shield;
     [SerializeField]
     private float _fireRate = .3f;
@@ -33,6 +36,8 @@ public class Player : MonoBehaviour
     private AudioClip _laserClip;
     [SerializeField]
     private AudioClip _explosionClip;
+    [SerializeField]
+    private AudioClip _damageClip;
     [SerializeField]
     private AudioSource _audioSource;
     [SerializeField]
@@ -139,6 +144,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void LoadTimer()
+    {
+        _sTimer = Instantiate(_timer[0]);
+    }
+
     //Damage behavior
     public void Damage()
     {
@@ -146,6 +156,7 @@ public class Player : MonoBehaviour
         {
             _isShieldActive = false;
             _shield.SetActive(false);
+            Destroy(_sTimer);
             return;
         }
 
@@ -153,6 +164,7 @@ public class Player : MonoBehaviour
         _shotCount = 0;
         _speedCount = 0;
         _isSpeedShotActive = false;
+        AudioSource.PlayClipAtPoint(_damageClip, transform.position);
 
         _uiManager.UpdateLife(_lives);
 
@@ -182,6 +194,8 @@ public class Player : MonoBehaviour
     {
         _isShieldActive = true;
         _shield.SetActive(true);
+        LoadTimer();
+        StartCoroutine(ShieldPowerDown());
     }
 
     //Playerscore
@@ -189,5 +203,12 @@ public class Player : MonoBehaviour
     {
         _score += points;
         _uiManager.UpdateScore(_score);
+    }
+
+    IEnumerator ShieldPowerDown()
+    {
+        yield return new WaitForSeconds(30f);
+        _isShieldActive = false;
+        _shield.SetActive(false);
     }
 }
