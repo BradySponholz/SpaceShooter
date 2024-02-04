@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     private bool _isGameOver;
+    [SerializeField]
+    private TMP_Text _endGameText;
+
+    private void Start()
+    {
+        _endGameText.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
@@ -17,7 +26,8 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            _endGameText.gameObject.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
@@ -26,4 +36,14 @@ public class GameManager : MonoBehaviour
         _isGameOver = true;
     }
 
+    public void ResumeGame()
+    {
+        _endGameText.gameObject.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void EndGame()
+    {
+        Application.Quit();
+    }
 }

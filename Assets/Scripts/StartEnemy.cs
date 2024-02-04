@@ -25,7 +25,7 @@ public class StartEnemy : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(0, 20, 0);
-        
+
         _player = GameObject.Find("Player").GetComponent<Player>();
         if (_player == null)
         {
@@ -62,7 +62,6 @@ public class StartEnemy : MonoBehaviour
             Debug.LogError("The AudioSource is NULL.");
         }
     }
-
     
     void Update()
     {
@@ -111,17 +110,17 @@ public class StartEnemy : MonoBehaviour
         {
             if (_player != null)
             {
-                _player.AddScore(100);
-                ObjectDeath();
+                _collider.enabled = false;
+                _animate.SetTrigger("EnemyDeath");
+                _audioSource.Play();
+                StartCoroutine(ObjectDeath());
             }
         }
     }
 
-    public void ObjectDeath()
+    IEnumerator ObjectDeath()
     {
-        _animate.SetTrigger("EnemyDeath");
-        _audioSource.Play();
-        _collider.enabled = false;
+        yield return new WaitForSeconds(.25f);
         _spawnManager.Begin();
         Destroy(this.gameObject, 0.55f);
     }
