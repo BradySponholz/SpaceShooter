@@ -17,9 +17,11 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text _gameOverText;
     [SerializeField]
-    private TMP_Text _restartText;
-    [SerializeField]
     private TMP_Text _getReadyText;
+    [SerializeField]
+    private TMP_Text _endGameText;
+    [SerializeField]
+    private Button _restartButton;
     private GameManager _gameManager;
     [SerializeField]
     private GameObject _startEnemy;    
@@ -29,8 +31,9 @@ public class UIManager : MonoBehaviour
     {
         _scoreText.text = "Score: " + _scoreLength;
         _gameOverText.gameObject.SetActive(false);
-        _restartText.gameObject.SetActive(false);
         _getReadyText.gameObject.SetActive(true);
+        _endGameText.gameObject.SetActive(false);
+        _restartButton.gameObject.SetActive(false);
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
 
         Instantiate(_startEnemy, transform.position, Quaternion.identity);
@@ -41,6 +44,21 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError("GameManager is NULL.");
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _endGameText.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
+    public void ResumeGame()
+    {
+        _endGameText.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void UpdateScore(int playerScore)
@@ -66,10 +84,9 @@ public class UIManager : MonoBehaviour
 
     void GameOverSequence()
     {
-        _gameManager.GameOver();
         _gameOverText.gameObject.SetActive(true);
         StartCoroutine(GameOverFlicker());
-        StartCoroutine(RestartText());
+        StartCoroutine(RestartButton());
     }
 
     IEnumerator GameOverFlicker()
@@ -83,10 +100,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    IEnumerator RestartText()
+    IEnumerator RestartButton()
     {
-        yield return new WaitForSeconds(2);
-        _restartText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5.5f);
+        _restartButton.gameObject.SetActive(true);
     }
 
     IEnumerator GetReadyFlicker()

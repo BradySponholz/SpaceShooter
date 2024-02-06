@@ -99,9 +99,6 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        //Vector2 movementDirection = _moveActionToUse.action.ReadValue<Vector2>();
-        //transform.Translate(movementDirection * _speed * Time.deltaTime);
-
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 5), 0);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9, 9), transform.position.y, 0);
     }
