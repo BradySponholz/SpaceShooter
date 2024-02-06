@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4772828525422487820}
   - component: {fileID: 1243970638094027954}
-  - component: {fileID: 8895734986280917373}
   - component: {fileID: 3118060188217946942}
   - component: {fileID: 8605644171874721382}
   - component: {fileID: 2295501059381038987}
+  - component: {fileID: 3164426888517988994}
   m_Layer: 0
   m_Name: Silver_Coin
   m_TagString: Untagged
@@ -88,27 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8895734986280917373
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9033789203686937116}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3780628e386afce4ca42f54d26450410, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3118060188217946942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba800793ec0378468084521ab329d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinID: 1
+  _coinID: 0
   _coinClip: {fileID: 8300000, guid: a607d47c47023404781e059b9b709739, type: 3}
 --- !u!50 &8605644171874721382
 Rigidbody2D:
@@ -203,3 +182,24 @@ PolygonCollider2D:
       - {x: -0.10732186, y: 0.1889267}
       - {x: -0.16446263, y: 0.125}
   m_UseDelaunayMesh: 0
+--- !u!95 &3164426888517988994
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033789203686937116}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3780628e386afce4ca42f54d26450410, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -159,7 +159,7 @@ MonoBehaviour:
   _speed: 3
   _lives: 2
   _audioSource: {fileID: 7618504923472963205}
-  _coin: {fileID: 9079535644965172848, guid: e9e08a75855610141ab200332b5bb5f2, type: 3}
+  _coin: {fileID: 9033789203686937116, guid: 3a1855c8d1b661241a8671161afed7e6, type: 3}
 --- !u!212 &2357135932108351335
 SpriteRenderer:
   m_ObjectHideFlags: 0

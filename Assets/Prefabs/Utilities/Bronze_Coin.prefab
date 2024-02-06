@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3956483200213692543}
   - component: {fileID: 7285735693549751846}
-  - component: {fileID: 8210750797775453776}
   - component: {fileID: 2603375790463253792}
   - component: {fileID: 1579418966149422717}
   - component: {fileID: 5780228793282009261}
+  - component: {fileID: 5659599363658264861}
   m_Layer: 0
   m_Name: Bronze_Coin
   m_TagString: Untagged
@@ -88,27 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8210750797775453776
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9079535644965172848}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7b80c4881daba654c8e966eb71d0fe38, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2603375790463253792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba800793ec0378468084521ab329d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinID: 0
+  _coinID: 2
   _coinClip: {fileID: 8300000, guid: a607d47c47023404781e059b9b709739, type: 3}
 --- !u!50 &1579418966149422717
 Rigidbody2D:
@@ -203,3 +182,24 @@ PolygonCollider2D:
       - {x: -0.10053587, y: 0.19571233}
       - {x: -0.17124856, y: 0.11821413}
   m_UseDelaunayMesh: 0
+--- !u!95 &5659599363658264861
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9079535644965172848}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b80c4881daba654c8e966eb71d0fe38, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

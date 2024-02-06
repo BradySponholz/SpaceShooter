@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba800793ec0378468084521ab329d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinID: 2
+  _coinID: 1
   _coinClip: {fileID: 8300000, guid: a607d47c47023404781e059b9b709739, type: 3}
 --- !u!50 &5205227724388788637
 Rigidbody2D:

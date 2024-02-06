@@ -20217,6 +20217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 254847619}
+  _coinText: {fileID: 733633131}
   _lifeImage: {fileID: 1273869977}
   _lifeSprites:
   - {fileID: 21300000, guid: a9926d9939a4664448ffaea23f4682a8, type: 3}
@@ -20843,7 +20844,7 @@ MonoBehaviour:
   _shield: {fileID: 1345764551}
   _fireRate: 0.3
   _lives: 3
-  _score: 0
+  _coins: 0
   _laserClip: {fileID: 8300000, guid: 2b6e03a12758468479f413988b81133a, type: 3}
   _explosionClip: {fileID: 8300000, guid: c982ad5bfbc300f44b9d08d2d8dac3dc, type: 3}
   _damageClip: {fileID: 8300000, guid: 4e369fa2e9133204abd2cbb5a902daf8, type: 3}
@@ -22365,7 +22366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &733633130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22382,8 +22383,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 165, y: -116}
-  m_SizeDelta: {x: 186.0768, y: 22.805}
+  m_AnchoredPosition: {x: 236.472, y: -116}
+  m_SizeDelta: {x: 281.373, y: 22.805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733633131
 MonoBehaviour:
@@ -22405,7 +22406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Coins: '
+  m_text: 'Coin: 0000000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 592c6a539e28697498cd1e85bfddffbf, type: 2}
   m_sharedMaterial: {fileID: 9212084621252334015, guid: 592c6a539e28697498cd1e85bfddffbf, type: 2}

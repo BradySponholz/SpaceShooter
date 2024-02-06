@@ -14,7 +14,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text _coinText;
     private string _coinLength = "0000000";
-    private bool _stopScoring = false;
     [SerializeField]
     private Image _lifeImage;
     [SerializeField]
@@ -64,11 +63,12 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    private void UpdateScore()
+    IEnumerator UpdateScore()
     {
-        while (_stopScoring == false)
+        while (true)
         {
-            _score = (int)Time.time / 5;
+            yield return new WaitForSeconds(.2f);
+            _score = (int)Time.time;
             _scoreText.text = "Score: " + _score.ToString(_scoreLength);
         }
     }
@@ -91,15 +91,15 @@ public class UIManager : MonoBehaviour
     public void Ready()
     {
         _getReadyText.gameObject.SetActive(false);
-        UpdateScore();
+        StartCoroutine(UpdateScore());
         StopCoroutine(GetReadyFlicker());
         StopCoroutine(ReadySequence());
     }
 
     void GameOverSequence()
     {
-        _stopScoring = true;
         _gameOverText.gameObject.SetActive(true);
+        StopCoroutine(UpdateScore());
         StartCoroutine(GameOverFlicker());
         StartCoroutine(RestartButton());
     }

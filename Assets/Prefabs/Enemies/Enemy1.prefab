@@ -55,7 +55,7 @@ MonoBehaviour:
   _audioSource: {fileID: 4675630245131253341}
   _enemyShot: {fileID: 8800936204866830838, guid: 89b93d4d2ba8d694c8ec9af69c786ec8, type: 3}
   _fireRate: 2.2
-  _coin: {fileID: 9033789203686937116, guid: 3a1855c8d1b661241a8671161afed7e6, type: 3}
+  _coin: {fileID: 7961323226932251608, guid: 1c542750ef3ce684f90cc592d0959b6f, type: 3}
 --- !u!212 &4882137311017190602
 SpriteRenderer:
   m_ObjectHideFlags: 0
