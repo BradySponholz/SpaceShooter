@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Powerup : MonoBehaviour
+public class Coins : MonoBehaviour
 {
-    private float _speed = 2.0f;
+    private float _speed = 1.8f;
     [SerializeField]
-    private int _powerupID;
+    private int _coinID;
     [SerializeField]
-    private AudioClip _powerupClip;
+    private AudioClip _coinClip;
 
-
+    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
@@ -27,20 +27,20 @@ public class Powerup : MonoBehaviour
         {
             Player player = other.transform.GetComponent<Player>();
 
-            AudioSource.PlayClipAtPoint(_powerupClip, transform.position);
+            AudioSource.PlayClipAtPoint(_coinClip, transform.position);
 
             if (player != null)
             {
-                switch (_powerupID)
+                switch (_coinID)
                 {
                     case 0:
-                        player.DoubleShotActive();
+                        player.AddCoins(1);
                         break;
                     case 1:
-                        player.SpeedShotActive();
+                        player.AddCoins(5);
                         break;
                     case 2:
-                        player.ShieldActive();
+                        player.AddCoins(10);
                         break;
                     default:
                         Debug.Log("default Value");

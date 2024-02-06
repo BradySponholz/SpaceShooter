@@ -17,8 +17,10 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]
     private GameObject _enemyShot;
     [SerializeField]
-    private float _fireRate = 1.5f;
+    private float _fireRate = 2.2f;
     private float _nextFire = -1f;
+    [SerializeField]
+    private GameObject _coin;
 
     private void Start()
     {
@@ -91,7 +93,6 @@ public class Enemy1 : MonoBehaviour
         {
             if (_player != null)
             {
-                _player.AddScore(30);
                 ObjectDeath();
             }
         }
@@ -102,6 +103,7 @@ public class Enemy1 : MonoBehaviour
         _explosion.SetTrigger("EnemyDeath");
         _audioSource.Play();
         _collider.enabled = false;
+        Instantiate(_coin, transform.position, Quaternion.identity);
         Destroy(this.gameObject, 0.55f);
     }
 }

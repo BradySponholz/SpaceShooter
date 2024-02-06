@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     private PolygonCollider2D _collider;
     [SerializeField]
     private AudioSource _audioSource;
+    [SerializeField]
+    private GameObject _coin;
 
     void Start()
     {
@@ -80,7 +82,6 @@ public class Enemy : MonoBehaviour
         {
             if (_player != null)
             {
-                _player.AddScore(10);
                 ObjectDeath();
             }
         }
@@ -91,6 +92,7 @@ public class Enemy : MonoBehaviour
         _explosion.SetTrigger("EnemyDeath");
         _audioSource.Play();
         _collider.enabled = false;
+        Instantiate(_coin, transform.position, Quaternion.identity);
         Destroy(this.gameObject, 0.55f);
     }
 }

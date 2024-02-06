@@ -20228,7 +20228,6 @@ MonoBehaviour:
   _getReadyText: {fileID: 644635280}
   _endGameText: {fileID: 1010331841}
   _restartButton: {fileID: 336588730}
-  _startEnemy: {fileID: 4266719065642569206, guid: 9a6484808e2cefe4dbd45785bd88ee2c, type: 3}
 --- !u!114 &131652105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21828,7 +21827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: get ready
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 592c6a539e28697498cd1e85bfddffbf, type: 2}
   m_sharedMaterial: {fileID: 9212084621252334015, guid: 592c6a539e28697498cd1e85bfddffbf, type: 2}
@@ -21855,8 +21854,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 112
-  m_fontSizeBase: 112
+  m_fontSize: 300
+  m_fontSizeBase: 300
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -23669,14 +23668,14 @@ RectTransform:
   m_GameObject: {fileID: 1273869975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 131652108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -183, y: -233}
+  m_AnchoredPosition: {x: -127, y: -233}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1273869977

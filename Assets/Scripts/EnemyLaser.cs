@@ -6,17 +6,10 @@ public class EnemyLaser : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 5.0f;
-    private Player _player;
     private Collider2D _collider;
 
     private void Start()
     {
-        _player = GameObject.Find("Player").GetComponent<Player>();
-        if (_player == null)
-        {
-            Debug.LogError("The Player is NULL.");
-        }
-
         _collider = GetComponent<Collider2D>();
         if (_collider == null)
         {

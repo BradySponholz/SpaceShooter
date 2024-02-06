@@ -71,9 +71,9 @@ public class StartEnemy : MonoBehaviour
 
     void GameStart()
     {
-        if (transform.position.y < 9)
+        //if (transform.position.y < 9)
         {
-            _uiManager.Ready();
+            //_uiManager.Ready();
         }
 
         if (transform.position.y < 5.5f)
@@ -121,7 +121,7 @@ public class StartEnemy : MonoBehaviour
     IEnumerator ObjectDeath()
     {
         yield return new WaitForSeconds(.25f);
-        _spawnManager.Begin();
+        //_spawnManager.Begin();
         Destroy(this.gameObject, 0.55f);
     }
 }

@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     private int _shotCount = 0;
     private int _speedCount = 0;
     [SerializeField]
-    private int _score;
+    private int _coins;
     private UIManager _uiManager;
     private Animator _explosion;
     private PolygonCollider2D _collider;
@@ -195,11 +195,10 @@ public class Player : MonoBehaviour
         StartCoroutine(ShieldPowerDown());
     }
 
-    //Playerscore
-    public void AddScore(int points)
+    public void AddCoins(int coins)
     {
-        _score += points;
-        _uiManager.UpdateScore(_score);
+        _coins += coins;
+        _uiManager.UpdateCoins(_coins);
     }
 
     IEnumerator ShieldPowerDown()

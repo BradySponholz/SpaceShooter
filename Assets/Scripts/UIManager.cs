@@ -9,7 +9,12 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text _scoreText;
+    private int _score;
     private string _scoreLength = "0000000";
+    [SerializeField]
+    private TMP_Text _coinText;
+    private string _coinLength = "0000000";
+    private bool _stopScoring = false;
     [SerializeField]
     private Image _lifeImage;
     [SerializeField]
@@ -22,23 +27,21 @@ public class UIManager : MonoBehaviour
     private TMP_Text _endGameText;
     [SerializeField]
     private Button _restartButton;
-    private GameManager _gameManager;
-    [SerializeField]
-    private GameObject _startEnemy;    
+    private GameManager _gameManager; 
     
 
     void Start()
     {
         _scoreText.text = "Score: " + _scoreLength;
+        _coinText.text = "Coin: " + _coinLength;
         _gameOverText.gameObject.SetActive(false);
         _getReadyText.gameObject.SetActive(true);
         _endGameText.gameObject.SetActive(false);
         _restartButton.gameObject.SetActive(false);
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
 
-        Instantiate(_startEnemy, transform.position, Quaternion.identity);
-
         StartCoroutine(GetReadyFlicker());
+        StartCoroutine(ReadySequence());
 
         if (_gameManager == null)
         {
@@ -61,9 +64,18 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void UpdateScore(int playerScore)
+    private void UpdateScore()
     {
-        _scoreText.text = "Score: " + playerScore.ToString(_scoreLength);
+        while (_stopScoring == false)
+        {
+            _score = (int)Time.time / 5;
+            _scoreText.text = "Score: " + _score.ToString(_scoreLength);
+        }
+    }
+
+    public void UpdateCoins(int playerCoins)
+    {
+        _coinText.text = "Coin: " + playerCoins.ToString(_coinLength);
     }
 
     public void UpdateLife(int currentLife)
@@ -79,11 +91,14 @@ public class UIManager : MonoBehaviour
     public void Ready()
     {
         _getReadyText.gameObject.SetActive(false);
+        UpdateScore();
         StopCoroutine(GetReadyFlicker());
+        StopCoroutine(ReadySequence());
     }
 
     void GameOverSequence()
     {
+        _stopScoring = true;
         _gameOverText.gameObject.SetActive(true);
         StartCoroutine(GameOverFlicker());
         StartCoroutine(RestartButton());
@@ -110,10 +125,25 @@ public class UIManager : MonoBehaviour
     {
         while (true)
         {
-            _getReadyText.text = "GET READY";
+            _getReadyText.text = "3";
             yield return new WaitForSeconds(0.5f);
             _getReadyText.text = "";
-            yield return new WaitForSeconds(0.5f);            
+            yield return new WaitForSeconds(0.5f);
+            _getReadyText.text = "2";
+            yield return new WaitForSeconds(0.5f);
+            _getReadyText.text = "";
+            yield return new WaitForSeconds(0.5f);
+            _getReadyText.text = "1";
+            yield return new WaitForSeconds(0.5f);
+            _getReadyText.text = "";
+            yield return new WaitForSeconds(2f);
         }
+    }
+
+    IEnumerator ReadySequence()
+    {
+        yield return new WaitForSeconds(3.5f);
+        Ready();
+        yield return new WaitForSeconds(1.0f);
     }
 }

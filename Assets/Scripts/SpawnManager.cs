@@ -20,27 +20,21 @@ public class SpawnManager : MonoBehaviour
     
     void Start()
     {
-        
+        StartCoroutine(SpawnEnemyRoutine());
+        StartCoroutine(SpawnEnemyRoutine1());
+        StartCoroutine(SpawnPowerupRoutine());
+        StartCoroutine(SpawnDefenseRoutine());
+        StartCoroutine(TempWaveSystem());
     }
 
     void Update()
     {
         
     }
-
-    public void Begin()
-    {
-        StartCoroutine(SpawnEnemyRoutine());
-        StartCoroutine(SpawnEnemyRoutine1());
-        StartCoroutine(SpawnPowerupRoutine());
-        StartCoroutine(SpawnDefenseRoutine());
-        return;
-    }
-
    
     IEnumerator SpawnEnemyRoutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         while (_stopSpawning == false)
         {
@@ -55,7 +49,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemyRoutine1()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7f);
 
         while (_stopSpawning == false)
         {
@@ -72,13 +66,15 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnPowerupRoutine()
     {
+        yield return new WaitForSeconds(1.5f);
+
         while (_stopSpawning == false)
         {
             int randomPowerup = Random.Range(1, 3);
             Vector3 posToSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 9, 0);
             GameObject newPowerup = Instantiate(_powerups[randomPowerup], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
-            yield return new WaitForSeconds(15f);
+            yield return new WaitForSeconds(20f);
         }
     }
 
@@ -91,7 +87,17 @@ public class SpawnManager : MonoBehaviour
             Vector3 posToSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 9, 0);
             GameObject newPowerup = Instantiate(_powerups[0], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
-            yield return new WaitForSeconds(45f);
+            yield return new WaitForSeconds(70f);
+        }
+    }
+
+    IEnumerator TempWaveSystem()
+    {
+        while (_stopSpawning == false)
+        {
+            yield return new WaitForSeconds(45);
+            StartCoroutine(SpawnEnemyRoutine());
+            StartCoroutine(SpawnEnemyRoutine());
         }
     }
 }
