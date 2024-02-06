@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text _scoreText;
     private int _score;
+    private bool _keepScore = true;
     private string _scoreLength = "0000000";
     [SerializeField]
     private TMP_Text _coinText;
@@ -65,10 +66,10 @@ public class UIManager : MonoBehaviour
 
     IEnumerator UpdateScore()
     {
-        while (true)
+        while (_keepScore == true)
         {
-            yield return new WaitForSeconds(.2f);
-            _score = (int)Time.time;
+            yield return new WaitForSeconds(.1f);
+            _score++;
             _scoreText.text = "Score: " + _score.ToString(_scoreLength);
         }
     }
@@ -84,6 +85,7 @@ public class UIManager : MonoBehaviour
 
         if (currentLife == 0)
         {
+            _keepScore = false;
             GameOverSequence();
         }
     }
@@ -99,7 +101,6 @@ public class UIManager : MonoBehaviour
     void GameOverSequence()
     {
         _gameOverText.gameObject.SetActive(true);
-        StopCoroutine(UpdateScore());
         StartCoroutine(GameOverFlicker());
         StartCoroutine(RestartButton());
     }
