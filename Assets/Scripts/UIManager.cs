@@ -10,8 +10,12 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text _scoreText;
     private int _score;
+    private int _highScore;
     private bool _keepScore = true;
     private string _scoreLength = "0000000";
+    [SerializeField]
+    private TMP_Text _highScoreText;
+    private string _highScoreLength = "0000000";
     [SerializeField]
     private TMP_Text _coinText;
     private string _coinLength = "0000000";
@@ -32,6 +36,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        _highScoreText.text = PlayerPrefs.GetInt("HighSchore").ToString(_highScoreLength);
         _scoreText.text = "Score: " + _scoreLength;
         _coinText.text = "Coin: " + _coinLength;
         _gameOverText.gameObject.SetActive(false);
@@ -42,6 +47,7 @@ public class UIManager : MonoBehaviour
 
         StartCoroutine(GetReadyFlicker());
         StartCoroutine(ReadySequence());
+        UpdateHighScore();
 
         if (_gameManager == null)
         {
@@ -74,6 +80,29 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UpdateHighScore()
+    {
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            if (_score > PlayerPrefs.GetInt("HighScore"))
+            {
+                _highScore = _score;
+                PlayerPrefs.SetInt("HighScore", _highScore);
+                PlayerPrefs.Save();
+            }
+        }
+
+        else
+        {
+            if (_score >= _highScore)
+            {
+                _highScore = _score;
+                PlayerPrefs.SetInt("HighScore", _highScore);
+                PlayerPrefs.Save();
+            }
+        }
+    }
+
     public void UpdateCoins(int playerCoins)
     {
         _coinText.text = "Coin: " + playerCoins.ToString(_coinLength);
@@ -92,6 +121,7 @@ public class UIManager : MonoBehaviour
 
     public void Ready()
     {
+        UpdateHighScore();
         _getReadyText.gameObject.SetActive(false);
         StartCoroutine(UpdateScore());
         StopCoroutine(GetReadyFlicker());
@@ -101,6 +131,7 @@ public class UIManager : MonoBehaviour
     void GameOverSequence()
     {
         _gameOverText.gameObject.SetActive(true);
+        UpdateHighScore();
         StartCoroutine(GameOverFlicker());
         StartCoroutine(RestartButton());
     }
