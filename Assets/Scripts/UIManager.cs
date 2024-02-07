@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
     {
         _highScoreText.text = PlayerPrefs.GetInt("HighSchore").ToString(_highScoreLength);
         _scoreText.text = "Score: " + _scoreLength;
-        _coinText.text = "Coin: " + _coinLength;
+        _coinText.text = "   : " + _coinLength;
         _gameOverText.gameObject.SetActive(false);
         _getReadyText.gameObject.SetActive(true);
         _endGameText.gameObject.SetActive(false);
@@ -105,7 +105,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateCoins(int playerCoins)
     {
-        _coinText.text = "Coin: " + playerCoins.ToString(_coinLength);
+        _coinText.text = "   : " + playerCoins.ToString(_coinLength);
     }
 
     public void UpdateLife(int currentLife)
