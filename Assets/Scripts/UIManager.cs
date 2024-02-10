@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     private string _highScoreLength = "0000000";
     [SerializeField]
     private TMP_Text _coinText;
-    private string _coinLength = "0000000";
+    private string _coinLength = "00000";
     [SerializeField]
     private Image _lifeImage;
     [SerializeField]
@@ -37,8 +37,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _highScoreText.text = PlayerPrefs.GetInt("HighSchore").ToString(_highScoreLength);
-        _scoreText.text = "Score: " + _scoreLength;
-        _coinText.text = "   : " + _coinLength;
+        _scoreText.text = "" + _scoreLength;
+        _coinText.text = "" + _coinLength;
         _gameOverText.gameObject.SetActive(false);
         _getReadyText.gameObject.SetActive(true);
         _endGameText.gameObject.SetActive(false);
@@ -64,6 +64,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void PauseGame()
+    {
+        _endGameText.gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
+
     public void ResumeGame()
     {
         _endGameText.gameObject.SetActive(false);
@@ -76,7 +82,7 @@ public class UIManager : MonoBehaviour
         {
             yield return new WaitForSeconds(.1f);
             _score++;
-            _scoreText.text = "Score: " + _score.ToString(_scoreLength);
+            _scoreText.text = "" + _score.ToString(_scoreLength);
         }
     }
 
@@ -105,7 +111,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateCoins(int playerCoins)
     {
-        _coinText.text = "   : " + playerCoins.ToString(_coinLength);
+        _coinText.text = "" + playerCoins.ToString(_coinLength);
     }
 
     public void UpdateLife(int currentLife)
@@ -149,7 +155,7 @@ public class UIManager : MonoBehaviour
 
     IEnumerator RestartButton()
     {
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(3f);
         _restartButton.gameObject.SetActive(true);
     }
 

@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -99,14 +100,14 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 5), 0);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9, 9), transform.position.y, 0);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -20f, 21f), 0);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -15.5f, 15.5f), transform.position.y, 0);
     }
 
     //Autofire on MouseButton Hold
     void AutoFire()
     {
-        if (Input.GetButton("Fire1") && Time.time > _nextFire)
+        if (Time.time > _nextFire)
         {
             if (_shotCount > 3)
             {

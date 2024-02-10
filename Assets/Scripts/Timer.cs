@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     private Image _timerFill;
     [SerializeField]
     private Image _shieldIcon;
-    private float _time = 2590f;
+    private float _time = 3090f;
     private float _remainingTime;
 
 

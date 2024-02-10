@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    private float _speed = 2.0f;
+    private float _speed = 3.0f;
     [SerializeField]
     private int _powerupID;
     [SerializeField]
@@ -15,7 +15,7 @@ public class Powerup : MonoBehaviour
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
-        if (transform.position.y < -8f)
+        if (transform.position.y < -25f)
         {
             Destroy(this.gameObject);
         }

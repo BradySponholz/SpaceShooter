@@ -22,7 +22,7 @@ public class EnemyLaser : MonoBehaviour
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
-        if (transform.position.y < -8f)
+        if (transform.position.y < -25f)
         {
             Destroy(this.gameObject);
         }

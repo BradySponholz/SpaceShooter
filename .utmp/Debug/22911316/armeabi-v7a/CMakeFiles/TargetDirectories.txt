@@ -1,0 +1,5 @@
+C:/Users/Brady Sponholz/Unity Projects/2D Shooter/.utmp/Debug/22911316/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Brady Sponholz/Unity Projects/2D Shooter/.utmp/Debug/22911316/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+C:/Users/Brady Sponholz/Unity Projects/2D Shooter/.utmp/Debug/22911316/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+C:/Users/Brady Sponholz/Unity Projects/2D Shooter/.utmp/Debug/22911316/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+C:/Users/Brady Sponholz/Unity Projects/2D Shooter/.utmp/Debug/22911316/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

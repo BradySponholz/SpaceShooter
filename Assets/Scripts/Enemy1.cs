@@ -53,13 +53,13 @@ public class Enemy1 : MonoBehaviour
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
-        if (transform.position.y < 7f && Time.time > _nextFire)
+        if (transform.position.y < 17f && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
             Instantiate(_enemyShot, transform.position, Quaternion.identity);
         }
 
-        if (transform.position.y < -8f)
+        if (transform.position.y < -25f)
         {
             Destroy(this.gameObject);
         }

@@ -38,7 +38,7 @@ public class SpawnManager : MonoBehaviour
 
         while (_stopSpawning == false)
         {
-            Vector3 posToSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 9, 0);
+            Vector3 posToSpawn = new Vector3(Random.Range(-12f, 12f), 25, 0);
             GameObject newEnemy = Instantiate(_enemyPrefab, posToSpawn, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(.5f);
@@ -53,7 +53,7 @@ public class SpawnManager : MonoBehaviour
 
         while (_stopSpawning == false)
         {
-            Vector3 posToSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 9, 0);
+            Vector3 posToSpawn = new Vector3(Random.Range(-12f, 12f), 25, 0);
             GameObject newEnemy1 = Instantiate(_enemyPrefab1, posToSpawn, Quaternion.identity);
             newEnemy1.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(3f);
@@ -71,7 +71,7 @@ public class SpawnManager : MonoBehaviour
         while (_stopSpawning == false)
         {
             int randomPowerup = Random.Range(1, 3);
-            Vector3 posToSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 9, 0);
+            Vector3 posToSpawn = new Vector3(Random.Range(-9f, 9f), 25, 0);
             GameObject newPowerup = Instantiate(_powerups[randomPowerup], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
             yield return new WaitForSeconds(20f);
@@ -84,7 +84,7 @@ public class SpawnManager : MonoBehaviour
 
         while (_stopSpawning == false)
         {
-            Vector3 posToSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 9, 0);
+            Vector3 posToSpawn = new Vector3(Random.Range(-9f, 9f), 25, 0);
             GameObject newPowerup = Instantiate(_powerups[0], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
             yield return new WaitForSeconds(70f);
