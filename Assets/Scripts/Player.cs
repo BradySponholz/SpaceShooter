@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 3.5f;
+    private float _speed = 20f;
     [SerializeField]
     private GameObject[] _shotType;
     [SerializeField]
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _coins;
     private UIManager _uiManager;
-    private Animator _explosion;
+    private Animator _animator;
     private PolygonCollider2D _collider;
     [SerializeField]
     private AudioClip _laserClip;
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        transform.position = new Vector3(0, -3, 0);
+        transform.position = new Vector3(0, -11, 0);
 
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
         if (_spawnManager == null)
@@ -61,8 +61,8 @@ public class Player : MonoBehaviour
             Debug.LogError("The UI Manager is Null.");
         }
 
-        _explosion = GetComponent<Animator>();
-        if (_explosion == null)
+        _animator = GetComponent<Animator>();
+        if (_animator == null)
         {
             Debug.LogError("The animator is NULL.");
         }
@@ -82,8 +82,6 @@ public class Player : MonoBehaviour
         {
             _audioSource.clip = _laserClip;
         }
-
-
     }
 
     void Update()
@@ -169,7 +167,7 @@ public class Player : MonoBehaviour
         if (_lives < 1)
         {
             _spawnManager.OnPlayerDeath();
-            _explosion.SetTrigger("PlayerDeath");
+            _animator.SetTrigger("PlayerDeath");
             AudioSource.PlayClipAtPoint(_explosionClip, transform.position);
             _collider.enabled = false;
             Destroy(this.gameObject, 0.55f);

@@ -12,8 +12,9 @@ public class Timer : MonoBehaviour
     private Image _timerFill;
     [SerializeField]
     private Image _shieldIcon;
-    private float _time = 3090f;
+    private float _time = 29.5f;
     private float _remainingTime;
+    private float _timeRemoved = .1f;
 
 
     void Start()
@@ -38,8 +39,8 @@ public class Timer : MonoBehaviour
         while (_remainingTime >= 0)
         {
             _timerFill.fillAmount = Mathf.InverseLerp(0f, _time, _remainingTime);
-            _remainingTime--;
-            yield return new WaitForSeconds(.01f);
+            _remainingTime -= _timeRemoved;
+            yield return new WaitForSeconds(.1f);
         }
         TimeOver();
     }

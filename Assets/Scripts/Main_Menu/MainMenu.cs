@@ -13,12 +13,10 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
-        //_camera = GameObject.Find("GameCamera").GetComponent<Animator>();
     }
 
     public void ClickStart()
     {
-        //_camera.SetTrigger("StartGame");
         _gameManager.StartGame();
     }
 

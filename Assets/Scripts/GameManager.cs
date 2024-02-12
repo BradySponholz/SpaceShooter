@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     private GameObject _spawnManager;
     [SerializeField]
     private Player _player;
+    [SerializeField]
+    private GameObject _flyIn;
 
 
 
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
         _gameUI.gameObject.SetActive(false);
         _spawnManager.gameObject.SetActive(false);
         _player.gameObject.SetActive(false);
+        _flyIn.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -39,7 +42,6 @@ public class GameManager : MonoBehaviour
     {
         _gameUI.gameObject.SetActive(true);
         _spawnManager.gameObject.SetActive(true);
-        _player.gameObject.SetActive(true);
         _menuUI.gameObject.SetActive(false);
         StartCoroutine(GameReady());
     }
@@ -52,7 +54,10 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameReady()
     {
-        yield return new WaitForSeconds(2.0f);
+        _flyIn.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        _player.gameObject.SetActive(true);
+        _flyIn.gameObject.SetActive(false);
         EndTransition();
     }
 
