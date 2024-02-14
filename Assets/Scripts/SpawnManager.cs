@@ -74,20 +74,20 @@ public class SpawnManager : MonoBehaviour
             Vector3 posToSpawn = new Vector3(Random.Range(-9f, 9f), 25, 0);
             GameObject newPowerup = Instantiate(_powerups[randomPowerup], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(55f);
         }
     }
 
     IEnumerator SpawnDefenseRoutine()
     {
-        yield return new WaitForSeconds(45f);
+        yield return new WaitForSeconds(60f);
 
         while (_stopSpawning == false)
         {
             Vector3 posToSpawn = new Vector3(Random.Range(-9f, 9f), 25, 0);
             GameObject newPowerup = Instantiate(_powerups[0], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
-            yield return new WaitForSeconds(70f);
+            yield return new WaitForSeconds(80f);
         }
     }
 
@@ -95,7 +95,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (_stopSpawning == false)
         {
-            yield return new WaitForSeconds(45);
+            yield return new WaitForSeconds(80);
             StartCoroutine(SpawnEnemyRoutine());
             StartCoroutine(SpawnEnemyRoutine());
         }

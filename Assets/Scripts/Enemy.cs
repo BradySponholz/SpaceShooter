@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     private AudioSource _audioSource;
     [SerializeField]
     private GameObject _coin;
+    private UIManager _uiManager;
 
     void Start()
     {
@@ -41,6 +42,12 @@ public class Enemy : MonoBehaviour
         if (_audioSource == null)
         {
             Debug.LogError("The AudioSource is NULL.");
+        }
+
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        if (_uiManager == null)
+        {
+            Debug.LogError("The UIManager is NULL");
         }
     }
 
@@ -92,7 +99,8 @@ public class Enemy : MonoBehaviour
         _explosion.SetTrigger("EnemyDeath");
         _audioSource.Play();
         _collider.enabled = false;
-        Instantiate(_coin, transform.position, Quaternion.identity);
+        _uiManager.IncreaseScore(100);
+        //Instantiate(_coin, transform.position, Quaternion.identity);
         Destroy(this.gameObject, 0.55f);
     }
 }

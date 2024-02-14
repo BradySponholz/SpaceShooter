@@ -37,10 +37,10 @@ public class Coins : MonoBehaviour
                         player.AddCoins(1);
                         break;
                     case 1:
-                        player.AddCoins(5);
+                        player.AddCoins(10);
                         break;
                     case 2:
-                        player.AddCoins(10);
+                        player.AddCoins(50);
                         break;
                     default:
                         Debug.Log("default Value");

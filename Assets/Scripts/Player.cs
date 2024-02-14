@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     private float _nextFire = .3f;
     private float _fireSpeedBoost = 1.1f;
     [SerializeField]
-    private int _lives = 3;
+    private int _lives = 1;
     private SpawnManager _spawnManager;
     private bool _isSpeedShotActive = false;
     private bool _isShieldActive = false;

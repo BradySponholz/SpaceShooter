@@ -12,17 +12,17 @@ public class UIManager : MonoBehaviour
     private int _score;
     private int _highScore;
     private bool _keepScore = true;
-    private string _scoreLength = "0000000";
+    private string _scoreLength = "00000000";
     [SerializeField]
     private TMP_Text _highScoreText;
-    private string _highScoreLength = "0000000";
+    private string _highScoreLength = "00000000";
     [SerializeField]
     private TMP_Text _coinText;
-    private string _coinLength = "00000";
-    [SerializeField]
-    private Image _lifeImage;
-    [SerializeField]
-    private Sprite[] _lifeSprites;
+    private string _coinLength = "000000";
+    //[SerializeField]
+    //private Image _lifeImage;
+    //[SerializeField]
+    //private Sprite[] _lifeSprites;
     [SerializeField]
     private TMP_Text _gameOverText;
     [SerializeField]
@@ -76,11 +76,20 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void IncreaseScore(int points)
+    {
+        if (_keepScore == true)
+        {
+            _score += points;
+            _scoreText.text = "" + points.ToString(_scoreLength);
+        }
+    }
+
     IEnumerator UpdateScore()
     {
         while (_keepScore == true)
         {
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.05f);
             _score++;
             _scoreText.text = "" + _score.ToString(_scoreLength);
         }
@@ -116,7 +125,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLife(int currentLife)
     {
-        _lifeImage.sprite = _lifeSprites[currentLife];
+        //_lifeImage.sprite = _lifeSprites[currentLife];
 
         if (currentLife == 0)
         {
