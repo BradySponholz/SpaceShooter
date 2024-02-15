@@ -22,6 +22,7 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]
     private GameObject _coin;
     private UIManager _uiManager;
+    private FlashDamage _flash;
 
     private void Start()
     {
@@ -54,6 +55,8 @@ public class Enemy1 : MonoBehaviour
         {
             Debug.LogError("The UIManager is NULL");
         }
+
+        _flash = GetComponent<FlashDamage>();
     }
 
     void Update()
@@ -96,7 +99,12 @@ public class Enemy1 : MonoBehaviour
     {
         _lives--;
 
-        if (_lives < 1)
+        if (_lives > 0)
+        {
+            _flash.Flash();
+        }
+
+        else
         {
             if (_player != null)
             {

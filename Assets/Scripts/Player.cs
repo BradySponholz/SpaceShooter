@@ -1,3 +1,4 @@
+using Spawner;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 1;
     private SpawnManager _spawnManager;
+    private EnemySpawner _enemySpawner;
     private bool _isSpeedShotActive = false;
     private bool _isShieldActive = false;
     private int _shotCount = 0;
@@ -53,6 +55,12 @@ public class Player : MonoBehaviour
         if (_spawnManager == null)
         {
             Debug.LogError("The Spawn Manager is NULL.");
+        }
+
+        _enemySpawner = GameObject.Find("Enemy_Spawner").GetComponent<EnemySpawner>();
+        if (_enemySpawner == null)
+        {
+            Debug.LogError("The Enemy Spawner is NULL.");
         }
 
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
@@ -167,6 +175,7 @@ public class Player : MonoBehaviour
         if (_lives < 1)
         {
             _spawnManager.OnPlayerDeath();
+            _enemySpawner.OnPlayerDeath();
             _animator.SetTrigger("PlayerDeath");
             AudioSource.PlayClipAtPoint(_explosionClip, transform.position);
             _collider.enabled = false;

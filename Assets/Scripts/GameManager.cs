@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using Spawner;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject _spawnManager;
     [SerializeField]
+    private GameObject _enemySpawner;
+    [SerializeField]
     private Player _player;
     [SerializeField]
     private GameObject _flyIn;
@@ -25,24 +28,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _menuUI.gameObject.SetActive(true);
-        _gameUI.gameObject.SetActive(false);
-        _spawnManager.gameObject.SetActive(false);
+        _menuUI.SetActive(true);
+        _gameUI.SetActive(false);
+        _spawnManager.SetActive(false);
+        _enemySpawner.SetActive(false);
         _player.gameObject.SetActive(false);
-        _flyIn.gameObject.SetActive(false);
+        _flyIn.SetActive(false);
     }
-
-    private void Update()
-    {
-       
-    }
-
 
     public void StartGame()
     {
-        _gameUI.gameObject.SetActive(true);
-        _spawnManager.gameObject.SetActive(true);
-        _menuUI.gameObject.SetActive(false);
+        _gameUI.SetActive(true);
+        _menuUI.SetActive(false);
         StartCoroutine(GameReady());
     }
 
@@ -54,10 +51,12 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameReady()
     {
-        _flyIn.gameObject.SetActive(true);
+        _flyIn.SetActive(true);
         yield return new WaitForSeconds(1.2f);
         _player.gameObject.SetActive(true);
-        _flyIn.gameObject.SetActive(false);
+        _flyIn.SetActive(false);
+        _spawnManager.SetActive(true);
+        _enemySpawner.SetActive(true);
         EndTransition();
     }
 

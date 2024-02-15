@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
-    [SerializeField]
-    private float _speed = 5.0f;
+    //[SerializeField]
+    //private float _speed = 5.0f;
     [SerializeField]
     private int _lives = 2;
     private Player _player;
@@ -17,6 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject _coin;
     private UIManager _uiManager;
+    private FlashDamage _flash;
 
     void Start()
     {
@@ -49,9 +49,11 @@ public class Enemy : MonoBehaviour
         {
             Debug.LogError("The UIManager is NULL");
         }
+
+        _flash = GetComponent<FlashDamage>();
     }
 
-    void Update()
+    /*void Update()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
@@ -59,7 +61,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
+    }*/
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -85,7 +87,12 @@ public class Enemy : MonoBehaviour
     {
         _lives--;
 
-        if (_lives < 1)
+        if (_lives > 0)
+        {
+            _flash.Flash();
+        }
+
+        else
         {
             if (_player != null)
             {

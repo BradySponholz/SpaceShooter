@@ -121,6 +121,8 @@ GameObject:
   - component: {fileID: 1386706047324389598}
   - component: {fileID: 6844642007243055034}
   - component: {fileID: 7618504923472963205}
+  - component: {fileID: 7007173854812767311}
+  - component: {fileID: 603275807551113281}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -156,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987a25baad62a7f4c8047565bbf18632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6
   _lives: 2
   _audioSource: {fileID: 7618504923472963205}
   _coin: {fileID: 9033789203686937116, guid: 3a1855c8d1b661241a8671161afed7e6, type: 3}
@@ -204,7 +205,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 1465747628517428618, guid: eaf0777b4dfff7540b5ab64c4dfbfae2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -412,3 +413,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7007173854812767311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905941802248987715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5bb0cd808f80b0488045111e694c36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashMat: {fileID: 2100000, guid: d964e4c2fa30e7347a541f2a54c790a3, type: 2}
+--- !u!114 &603275807551113281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905941802248987715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_LoopMode: 1
+  m_Method: 1
+  m_Duration: 27.952036
+  m_MaxSpeed: 7
+  m_EasingMode: 0
+  m_AlignmentMode: 1
+  m_ObjectForwardAxis: 1
+  m_ObjectUpAxis: 2
+  m_StartOffset: 0

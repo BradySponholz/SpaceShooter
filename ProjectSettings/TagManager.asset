@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Laser
   - Timer
+  - SplineContainer
   layers:
   - Default
   - TransparentFX
