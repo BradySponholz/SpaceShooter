@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1281681954351507704}
   - component: {fileID: 6562414327941102253}
-  - component: {fileID: 4600526005083210925}
+  - component: {fileID: 3050216064716311034}
   m_Layer: 0
   m_Name: En_Shadow
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8662927308621996064}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.5, z: 0.1}
+  m_LocalPosition: {x: 0.1, y: -0.3, z: 0.1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4600526005083210925
+--- !u!95 &3050216064716311034
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 8662927308621996064}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f31234133d94a464d958d5beeb6161d1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 402fa165db7a91c46bc459539f280cf0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 6844642007243055034}
   - component: {fileID: 7618504923472963205}
   - component: {fileID: 7007173854812767311}
-  - component: {fileID: 603275807551113281}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -158,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987a25baad62a7f4c8047565bbf18632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 6
   _lives: 2
   _audioSource: {fileID: 7618504923472963205}
   _coin: {fileID: 9033789203686937116, guid: 3a1855c8d1b661241a8671161afed7e6, type: 3}
@@ -205,7 +205,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 1465747628517428618, guid: eaf0777b4dfff7540b5ab64c4dfbfae2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -305,17 +305,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.2756466, y: 0.24208155}
+    - - {x: 0.27406454, y: 0.26148406}
       - {x: 0.098761015, y: 0.39731735}
-      - {x: -0.11719871, y: 0.40649456}
-      - {x: -0.28475094, y: 0.26294473}
-      - {x: -0.22764891, y: 0.0917601}
-      - {x: -0.21442491, y: -0.11265993}
-      - {x: -0.1436676, y: -0.29770592}
-      - {x: -0.058251575, y: -0.4125499}
-      - {x: 0.07435089, y: -0.41101307}
-      - {x: 0.14676988, y: -0.27536574}
-      - {x: 0.22097984, y: 0.080015436}
+      - {x: -0.106641956, y: 0.39593786}
+      - {x: -0.2731402, y: 0.27192143}
+      - {x: -0.2754184, y: 0.20235008}
+      - {x: -0.20848544, y: 0.09228015}
+      - {x: -0.10671897, y: -0.27659228}
+      - {x: -0.077649966, y: -0.3959226}
+      - {x: 0.08266449, y: -0.394386}
+      - {x: 0.19295722, y: 0.08739719}
+      - {x: 0.27270746, y: 0.20551777}
   m_UseDelaunayMesh: 0
 --- !u!82 &7618504923472963205
 AudioSource:
@@ -426,26 +426,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashMat: {fileID: 2100000, guid: d964e4c2fa30e7347a541f2a54c790a3, type: 2}
---- !u!114 &603275807551113281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8905941802248987715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_LoopMode: 1
-  m_Method: 1
-  m_Duration: 27.952036
-  m_MaxSpeed: 7
-  m_EasingMode: 0
-  m_AlignmentMode: 1
-  m_ObjectForwardAxis: 1
-  m_ObjectUpAxis: 2
-  m_StartOffset: 0

@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P1Enemy : MonoBehaviour
+public class T2Enemy : MonoBehaviour
 {
     [SerializeField]
-    private int _lives = 2;
+    private int _lives = 5;
     private Player _player;
     private Animator _explosion;
     private PolygonCollider2D _collider;
     [SerializeField]
     private AudioSource _audioSource;
-    //[SerializeField]
-    //private GameObject _coin;
+    [SerializeField]
+    private GameObject _coin;
     private UIManager _uiManager;
     private FlashDamage _flash;
 
@@ -103,7 +103,7 @@ public class P1Enemy : MonoBehaviour
         _audioSource.Play();
         _collider.enabled = false;
         _uiManager.IncreaseScore(100);
-        //Instantiate(_coin, transform.position, Quaternion.identity);
+        Instantiate(_coin, transform.position, Quaternion.identity);
         Destroy(this.gameObject, 0.55f);
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //[SerializeField]
-    //private float _speed = 5.0f;
+    [SerializeField]
+    private float _speed = 5.0f;
     [SerializeField]
     private int _lives = 2;
     private Player _player;
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
         _flash = GetComponent<FlashDamage>();
     }
 
-    /*void Update()
+    void Update()
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }*/
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
