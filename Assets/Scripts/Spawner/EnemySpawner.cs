@@ -8,13 +8,13 @@ namespace Spawner
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] int maxEnemiesT1 = 15;
-        [SerializeField] float spawnIntervalT1 = 1f;
+        [SerializeField] int maxEnemiesT1 = 20;
+        [SerializeField] float spawnIntervalT1 = .75f;
         [SerializeField] List<EnemyType> enemyTypesT1;
         int enemiesSpawnedT1;
 
-        [SerializeField] int maxEnemiesT2 = 5;
-        [SerializeField] float spawnIntervalT2 = 5f;
+        [SerializeField] int maxEnemiesT2 = 10;
+        [SerializeField] float spawnIntervalT2 = 4f;
         [SerializeField] List<EnemyType> enemyTypesT2;
         int enemiesSpawnedT2;
 
@@ -48,7 +48,7 @@ namespace Spawner
                 }
             }
 
-            if (enemiesSpawnedT2 < maxEnemiesT1 && spawnTimer >= spawnIntervalT2)
+            if (enemiesSpawnedT2 < maxEnemiesT2 && spawnTimer >= spawnIntervalT2)
             {
                 if (stopSpawning == false)
                 {
@@ -59,7 +59,7 @@ namespace Spawner
 
         IEnumerator SpawnEnemyRoutine1()
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(1f);
 
             while (stopSpawning == false)
             {

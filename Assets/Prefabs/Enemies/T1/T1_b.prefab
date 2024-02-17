@@ -287,7 +287,7 @@ MonoBehaviour:
   m_LoopMode: 1
   m_Method: 1
   m_Duration: 1
-  m_MaxSpeed: 5
+  m_MaxSpeed: 6
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 1
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bb0cd808f80b0488045111e694c36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flashMat: {fileID: 0}
+  _flashMat: {fileID: 2100000, guid: d964e4c2fa30e7347a541f2a54c790a3, type: 2}
 --- !u!114 &1105130584554171496
 MonoBehaviour:
   m_ObjectHideFlags: 0

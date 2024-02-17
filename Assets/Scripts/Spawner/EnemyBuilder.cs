@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.UIElements;
 using Utility;
 
 namespace Spawner
@@ -42,8 +43,8 @@ namespace Spawner
             SplineAnimate splineAnimate = instance.GetOrAdd<SplineAnimate>();
             splineAnimate.Container = splineContainer;
             splineAnimate.AnimationMethod = SplineAnimate.Method.Speed;
-            splineAnimate.ObjectUpAxis = SplineAnimate.AlignAxis.ZAxis; //ZAxis
-            splineAnimate.ObjectForwardAxis = SplineAnimate.AlignAxis.YAxis; //YAxis
+            splineAnimate.ObjectUpAxis = SplineAnimate.AlignAxis.ZAxis;
+            splineAnimate.ObjectForwardAxis = SplineAnimate.AlignAxis.YAxis;
             splineAnimate.MaxSpeed = speed;
 
             // Weapon in P3

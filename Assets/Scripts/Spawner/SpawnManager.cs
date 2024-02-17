@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _enemyPrefab;
-    [SerializeField]
-    private GameObject _enemyContainer;
+    //[SerializeField]
+    //private GameObject _enemyPrefab;
+    //[SerializeField]
+    //private GameObject _enemyContainer;
     [SerializeField]
     private GameObject _powerupContainer;
     [SerializeField]
@@ -18,18 +18,12 @@ public class SpawnManager : MonoBehaviour
     
     void Start()
     {
-        StartCoroutine(SpawnEnemyRoutine());
+        //StartCoroutine(SpawnEnemyRoutine());
         StartCoroutine(SpawnPowerupRoutine());
         StartCoroutine(SpawnDefenseRoutine());
-        StartCoroutine(TempWaveSystem());
-    }
-
-    void Update()
-    {
-        
     }
    
-    IEnumerator SpawnEnemyRoutine()
+    /*IEnumerator SpawnEnemyRoutine()
     {
         yield return new WaitForSeconds(3f);
 
@@ -40,7 +34,7 @@ public class SpawnManager : MonoBehaviour
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(1f);
         }      
-    }
+    }*/
 
     public void OnPlayerDeath()
     {
@@ -71,15 +65,6 @@ public class SpawnManager : MonoBehaviour
             GameObject newPowerup = Instantiate(_powerups[0], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
             yield return new WaitForSeconds(80f);
-        }
-    }
-
-    IEnumerator TempWaveSystem()
-    {
-        while (_stopSpawning == false)
-        {
-            yield return new WaitForSeconds(80);
-            StartCoroutine(SpawnEnemyRoutine());
         }
     }
 }

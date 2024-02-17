@@ -31,8 +31,12 @@ public class UIManager : MonoBehaviour
     private TMP_Text _endGameText;
     [SerializeField]
     private Button _restartButton;
-    private GameManager _gameManager; 
-    
+    private GameManager _gameManager;
+    private MusicManager _gameMusic;
+    private float _time = 1f;
+    private float _gameSpeed = .05f;
+    private float _gameRate = 1f;
+
 
     void Start()
     {
@@ -44,10 +48,13 @@ public class UIManager : MonoBehaviour
         _endGameText.gameObject.SetActive(false);
         _restartButton.gameObject.SetActive(false);
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+        _gameMusic = GameObject.Find("Background_Audio").GetComponent<MusicManager>();
 
         StartCoroutine(GetReadyFlicker());
         StartCoroutine(ReadySequence());
+        StartCoroutine(GameSpeed());
         UpdateHighScore();
+        _gameMusic.GameStart();
 
         if (_gameManager == null)
         {
@@ -66,14 +73,17 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
-        _endGameText.gameObject.SetActive(true);
-        Time.timeScale = 0;
+        if (_keepScore == true)
+        {
+            _endGameText.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     public void ResumeGame()
     {
         _endGameText.gameObject.SetActive(false);
-        Time.timeScale = 1;
+        StartCoroutine(ReturnToGame());
     }
 
     public void IncreaseScore(int points)
@@ -149,6 +159,7 @@ public class UIManager : MonoBehaviour
         UpdateHighScore();
         StartCoroutine(GameOverFlicker());
         StartCoroutine(RestartButton());
+        _gameMusic.GameOver();
     }
 
     IEnumerator GameOverFlicker()
@@ -164,7 +175,7 @@ public class UIManager : MonoBehaviour
 
     IEnumerator RestartButton()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         _restartButton.gameObject.SetActive(true);
     }
 
@@ -187,10 +198,42 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    IEnumerator ReturnToGame()
+    {
+        Time.timeScale = .75f;
+        _gameMusic.BackToGame();
+        _getReadyText.gameObject.SetActive(true);
+        _getReadyText.text = "3";
+        yield return new WaitForSeconds(0.375f);
+        _getReadyText.text = "";
+        yield return new WaitForSeconds(0.375f);
+        _getReadyText.text = "2";
+        yield return new WaitForSeconds(0.375f);
+        _getReadyText.text = "";
+        yield return new WaitForSeconds(0.375f);
+        _getReadyText.text = "1";
+        yield return new WaitForSeconds(0.375f);
+        _getReadyText.text = "";
+        yield return new WaitForSeconds(0.375f);
+        _getReadyText.gameObject.SetActive(false);
+        Time.timeScale = _gameRate;
+    }
+
     IEnumerator ReadySequence()
     {
         yield return new WaitForSeconds(3.5f);
         Ready();
         yield return new WaitForSeconds(1.0f);
+    }
+
+    IEnumerator GameSpeed()
+    {
+        while (_keepScore == true)
+        {
+            yield return new WaitForSeconds(15);
+            _time++;
+            _gameRate = 1 + (_time * _gameSpeed);
+            Time.timeScale = _gameRate;
+        }
     }
 }
