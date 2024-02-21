@@ -102,7 +102,7 @@ public class T2Enemy : MonoBehaviour
         _explosion.SetTrigger("EnemyDeath");
         _audioSource.Play();
         _collider.enabled = false;
-        _uiManager.IncreaseScore(100);
+        _uiManager.IncreaseScore(500);
         Instantiate(_coin, transform.position, Quaternion.identity);
         Destroy(this.gameObject, 0.55f);
     }

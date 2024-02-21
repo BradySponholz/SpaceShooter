@@ -26110,6 +26110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   end: -192
   start: 0
+  keepPlaying: 1
 --- !u!23 &283760353
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30545,6 +30546,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1fc6fd6f97b7ffc48940ada6d115189d, type: 2}
   - {fileID: 11400000, guid: 16c6a1302d033b84489ba4f286a8a681, type: 2}
   - {fileID: 11400000, guid: 5b94e1729b35bc942908beb412c67e80, type: 2}
+  - {fileID: 11400000, guid: fffefd70d49258f42af1e0c5ec5501d5, type: 2}
+  - {fileID: 11400000, guid: c2b2cc91c14bed8419bdf24f65773369, type: 2}
+  - {fileID: 11400000, guid: acd3564143f65ea46b22cc3564fa03c9, type: 2}
+  - {fileID: 11400000, guid: fa133e7dff9e3b049b42e75d9405cf68, type: 2}
+  - {fileID: 11400000, guid: 445c4a5321c7665408a39a6a0408a972, type: 2}
+  - {fileID: 11400000, guid: fb59f1c51ece1ef44af61afdbccaa4ae, type: 2}
+  - {fileID: 11400000, guid: 5f8819358358b71428ec020802993c0a, type: 2}
+  - {fileID: 11400000, guid: b906c0e5bd9550940bae22ab8e800a80, type: 2}
   maxEnemiesT2: 10
   spawnIntervalT2: 4
   enemyTypesT2:
@@ -30552,6 +30561,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe09b3856a906824aac0ca3cbacda007, type: 2}
   - {fileID: 11400000, guid: 0809bfc9bc3460e45b92691379fd5bec, type: 2}
   - {fileID: 11400000, guid: e18f64c3791c3034cbd2a460b9335c9c, type: 2}
+  - {fileID: 11400000, guid: 15ee624bdef71bd41b2f66ed31c6e094, type: 2}
+  - {fileID: 11400000, guid: f683299c46267c04e8d8a501988d05af, type: 2}
+  - {fileID: 11400000, guid: f422add087c09d44f888717637501c5d, type: 2}
+  - {fileID: 11400000, guid: 3e429816267d16c4a979e8221ec18c83, type: 2}
+  - {fileID: 11400000, guid: 4e1d7f795575b3c4ea9119e6e176617e, type: 2}
+  - {fileID: 11400000, guid: f2de1949a5de2b7428112b87b97def7a, type: 2}
+  - {fileID: 11400000, guid: 2dd032688bdb096498938f87f3b4f93e, type: 2}
+  - {fileID: 11400000, guid: 715c6c2b2b4305943b0df8f15c1e5a67, type: 2}
   splines:
   - {fileID: 807687932}
   - {fileID: 1234814655}

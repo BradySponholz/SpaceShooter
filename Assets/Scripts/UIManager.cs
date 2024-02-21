@@ -33,8 +33,8 @@ public class UIManager : MonoBehaviour
     private Button _restartButton;
     private GameManager _gameManager;
     private MusicManager _gameMusic;
-    private float _time = 1f;
-    private float _gameSpeed = .05f;
+    //private float _time = 1f;
+    //private float _gameSpeed = .05f;
     private float _gameRate = 1f;
 
 
@@ -52,7 +52,7 @@ public class UIManager : MonoBehaviour
 
         StartCoroutine(GetReadyFlicker());
         StartCoroutine(ReadySequence());
-        StartCoroutine(GameSpeed());
+        StartCoroutine(GameScoreSpeed());
         UpdateHighScore();
         _gameMusic.GameStart();
 
@@ -226,14 +226,15 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
     }
 
-    IEnumerator GameSpeed()
+    IEnumerator GameScoreSpeed()
     {
         while (_keepScore == true)
         {
-            yield return new WaitForSeconds(15);
-            _time++;
-            _gameRate = 1 + (_time * _gameSpeed);
-            Time.timeScale = _gameRate;
+            yield return new WaitForSeconds(30);
+            StartCoroutine(UpdateScore());
+            //_time++;
+            //_gameRate = 1 + (_time * _gameSpeed);
+            //Time.timeScale = _gameRate;
         }
     }
 }

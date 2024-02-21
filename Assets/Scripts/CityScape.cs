@@ -9,12 +9,13 @@ public class CityScape : MonoBehaviour
     private float end;
     [SerializeField]
     private float start;
-    //private float _time = 1f;
-    //private float _gameSpeed = .25f;
+    private float _time = 1f;
+    private float _gameSpeed = .05f;
+    public bool keepPlaying = true;
 
     private void Start()
     {
-        //StartCoroutine(SpeedIncrease());
+        StartCoroutine(SpeedIncrease());
     }
 
     private void Update()
@@ -29,13 +30,13 @@ public class CityScape : MonoBehaviour
         }
     }
 
-    /*IEnumerator SpeedIncrease()
+    IEnumerator SpeedIncrease()
     {
-        while (true) //(_isAlive = true)
+        while (keepPlaying == true)
         {
             yield return new WaitForSeconds(30f);
             _time++;
             speed = 1.3f + (_time * _gameSpeed);
         }
-    }*/
+    }
 }

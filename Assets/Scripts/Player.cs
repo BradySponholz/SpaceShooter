@@ -19,9 +19,14 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _shield;
     [SerializeField]
-    private float _fireRate = .3f;
-    private float _nextFire = .3f;
+    private float _fireRate = .4f;
+    private float _nextFire = .4f;
     private float _fireSpeedBoost = 1.1f;
+    //private int _time = 0;
+    //private float _gameSpeed = .25f;
+    //private float _timeAdjust = .1f;
+    //private int _gameRate = 0;
+    //private float _gameAdjust = 0;
     [SerializeField]
     private int _lives = 1;
     private SpawnManager _spawnManager;
@@ -90,6 +95,8 @@ public class Player : MonoBehaviour
         {
             _audioSource.clip = _laserClip;
         }
+
+        //StartCoroutine(GameSpeedAdjustment());
     }
 
     void Update()
@@ -215,4 +222,16 @@ public class Player : MonoBehaviour
         _isShieldActive = false;
         _shield.SetActive(false);
     }
+
+    /*IEnumerator GameSpeedAdjustment()
+    {
+        while (_fireRate > 0)
+        {
+            yield return new WaitForSeconds(25);
+            _time++;
+            _gameRate++;
+            _gameAdjust = _gameRate * .3f; 
+            _fireRate = .4f - (_time * _gameSpeed * _timeAdjust * _gameAdjust);
+        }
+    }*/
 }

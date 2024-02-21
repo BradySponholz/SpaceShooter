@@ -51,7 +51,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 posToSpawn = new Vector3(Random.Range(-9f, 9f), 25, 0);
             GameObject newPowerup = Instantiate(_powerups[randomPowerup], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
-            yield return new WaitForSeconds(55f);
+            yield return new WaitForSeconds(75f);
         }
     }
 
@@ -64,7 +64,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 posToSpawn = new Vector3(Random.Range(-9f, 9f), 25, 0);
             GameObject newPowerup = Instantiate(_powerups[0], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
-            yield return new WaitForSeconds(80f);
+            yield return new WaitForSeconds(100f);
         }
     }
 }

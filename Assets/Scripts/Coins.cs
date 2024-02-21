@@ -37,7 +37,7 @@ public class Coins : MonoBehaviour
                         player.AddCoins(1);
                         break;
                     case 1:
-                        player.AddCoins(10);
+                        player.AddCoins(5);
                         break;
                     case 2:
                         player.AddCoins(50);
