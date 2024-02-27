@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &426210464137086677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6919275240550824938}
+  m_Layer: 8
+  m_Name: firePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6919275240550824938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426210464137086677}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.491, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1197189033940583118}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &543550873569577644
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,7 +48,7 @@ GameObject:
   - component: {fileID: 5396108385300461163}
   - component: {fileID: 1892806212407380885}
   - component: {fileID: 7138366748920513755}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T2_a
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -38,6 +69,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2437351826582013615}
+  - {fileID: 6919275240550824938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &501213758377964441
@@ -319,6 +351,8 @@ MonoBehaviour:
   _lives: 5
   _audioSource: {fileID: 2243592090260578660}
   _coin: {fileID: 9033789203686937116, guid: 3a1855c8d1b661241a8671161afed7e6, type: 3}
+  _enemyLaser: {fileID: 4595614244049783143, guid: a1adcf8db3e754e4ba003fd643735258, type: 3}
+  _enemyMissle: {fileID: 6207982391612593390, guid: 17d22147419d00249aeaec86ed592ec7, type: 3}
 --- !u!95 &7138366748920513755
 Animator:
   serializedVersion: 5
@@ -351,7 +385,7 @@ GameObject:
   - component: {fileID: 2437351826582013615}
   - component: {fileID: 120178739561562443}
   - component: {fileID: 8160743923806871205}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T2_a_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

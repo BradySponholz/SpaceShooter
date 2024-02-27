@@ -105,6 +105,36 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    IEnumerator UpdateScore2()
+    {
+        while (_keepScore == true)
+        {
+            yield return new WaitForSeconds(.035f);
+            _score++;
+            _scoreText.text = "" + _score.ToString(_scoreLength);
+        }
+    }
+
+    IEnumerator UpdateScore3()
+    {
+        while (_keepScore == true)
+        {
+            yield return new WaitForSeconds(.02f);
+            _score++;
+            _scoreText.text = "" + _score.ToString(_scoreLength);
+        }
+    }
+
+    IEnumerator UpdateScore4()
+    {
+        while (_keepScore == true)
+        {
+            yield return new WaitForSeconds(.01f);
+            _score++;
+            _scoreText.text = "" + _score.ToString(_scoreLength);
+        }
+    }
+
     public void UpdateHighScore()
     {
         if (PlayerPrefs.HasKey("HighScore"))
@@ -230,11 +260,27 @@ public class UIManager : MonoBehaviour
     {
         while (_keepScore == true)
         {
-            yield return new WaitForSeconds(30);
+            yield return new WaitForSeconds(300);
+            StopCoroutine(UpdateScore());
+            StartCoroutine(UpdateScore2());
+            yield return new WaitForSeconds(300);
+            StopCoroutine(UpdateScore2());
+            StartCoroutine(UpdateScore3());
+            yield return new WaitForSeconds(300);
+            StopCoroutine(UpdateScore3());
+            StartCoroutine(UpdateScore4());
+            yield return new WaitForSeconds(300);
+            StartCoroutine(UpdateScoreRepeat());
+            StopCoroutine(GameScoreSpeed());
+        }
+    }
+
+    IEnumerator UpdateScoreRepeat()
+    {
+        while (_keepScore == true)
+        {
+            yield return new WaitForSeconds(300);
             StartCoroutine(UpdateScore());
-            //_time++;
-            //_gameRate = 1 + (_time * _gameSpeed);
-            //Time.timeScale = _gameRate;
         }
     }
 }

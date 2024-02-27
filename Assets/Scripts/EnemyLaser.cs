@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class EnemyLaser : MonoBehaviour
 {
+    private BoxCollider2D _collider;
+    private Player _player;
     [SerializeField]
-    private float _speed = 5.0f;
-    private Collider2D _collider;
+    private float _speed = 12f;
 
     private void Start()
     {
-        _collider = GetComponent<Collider2D>();
+        _collider = GetComponent<BoxCollider2D>();
         if (_collider == null)
         {
             Debug.LogError("The collider is NULL.");
         }
+
+        _player = GameObject.Find("Player").GetComponent<Player>();
+        if (_player == null)
+        {
+            Debug.LogError("The Player is NULL.");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * _speed * Time.deltaTime);
+        transform.position += transform.up * (_speed * Time.deltaTime);
 
-        if (transform.position.y < -25f)
+        if (transform.position.y > 25 | transform.position.y < -25 | transform.position.x > 22 | transform.position.x < -22)
         {
+            if (transform.parent != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
             Destroy(this.gameObject);
         }
     }

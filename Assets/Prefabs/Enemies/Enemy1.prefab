@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6511203085717155595}
   - component: {fileID: 4675630245131253341}
   - component: {fileID: 3314504220875532609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -331,7 +331,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashMat: {fileID: 2100000, guid: d964e4c2fa30e7347a541f2a54c790a3, type: 2}
-  _duration: 0.5
 --- !u!1 &6953694258480878729
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +342,7 @@ GameObject:
   - component: {fileID: 6708780292105095423}
   - component: {fileID: 7535486847616284059}
   - component: {fileID: 8637510374142566623}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: planes_06_A_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

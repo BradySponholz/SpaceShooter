@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8891903853649532186}
   - component: {fileID: 2538430261994815312}
   - component: {fileID: 1006819924905043971}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T1_a
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 0}
   m_PlayOnAwake: 1
-  m_LoopMode: 1
+  m_LoopMode: 0
   m_Method: 1
   m_Duration: 1
   m_MaxSpeed: 6
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 4408459481416227100}
   - component: {fileID: 2626254690289281343}
   - component: {fileID: 2480920546004759039}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T1_a_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

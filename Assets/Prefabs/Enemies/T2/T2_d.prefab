@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 823375118974836405}
   - component: {fileID: 3114232783144333448}
   - component: {fileID: 109261665721633812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T2_d_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6716742455753648029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6229113703490340429}
+  m_Layer: 8
+  m_Name: firePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6229113703490340429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716742455753648029}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.594, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2670717800739205977}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7849556862449531274
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +154,7 @@ GameObject:
   - component: {fileID: 2242177667995333863}
   - component: {fileID: 675839666292731723}
   - component: {fileID: 8329090616136468112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T2_d
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -144,6 +175,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 823375118974836405}
+  - {fileID: 6229113703490340429}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &393615303358667461
@@ -425,6 +457,8 @@ MonoBehaviour:
   _lives: 5
   _audioSource: {fileID: 1353160640747735892}
   _coin: {fileID: 9033789203686937116, guid: 3a1855c8d1b661241a8671161afed7e6, type: 3}
+  _enemyLaser: {fileID: 4595614244049783143, guid: a1adcf8db3e754e4ba003fd643735258, type: 3}
+  _enemyMissle: {fileID: 6207982391612593390, guid: 17d22147419d00249aeaec86ed592ec7, type: 3}
 --- !u!95 &8329090616136468112
 Animator:
   serializedVersion: 5

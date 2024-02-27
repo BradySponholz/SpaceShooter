@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3311171314274139101}
   - component: {fileID: 2254018042157817347}
   - component: {fileID: 2361607248983818641}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T1_d_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4939677074978068731}
   - component: {fileID: 535698657063094768}
   - component: {fileID: 1068641253635387439}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T1_d
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 0}
   m_PlayOnAwake: 1
-  m_LoopMode: 1
+  m_LoopMode: 0
   m_Method: 1
   m_Duration: 1
   m_MaxSpeed: 6
