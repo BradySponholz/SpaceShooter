@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    //[SerializeField]
-    //private GameObject _enemyPrefab;
-    //[SerializeField]
-    //private GameObject _enemyContainer;
+    [SerializeField]
+    private GameObject[] _enemyPrefab;
+    [SerializeField]
+    private GameObject _enemyContainer;
     [SerializeField]
     private GameObject _powerupContainer;
     [SerializeField]
@@ -18,40 +18,41 @@ public class SpawnManager : MonoBehaviour
     
     void Start()
     {
-        //StartCoroutine(SpawnEnemyRoutine());
-        StartCoroutine(SpawnPowerupRoutine());
-        StartCoroutine(SpawnDefenseRoutine());
+        StartCoroutine(SpawnEnemyRoutine());
+        //StartCoroutine(SpawnPowerupRoutine());
+        //StartCoroutine(SpawnDefenseRoutine());
     }
    
-    /*IEnumerator SpawnEnemyRoutine()
+    IEnumerator SpawnEnemyRoutine()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(.5f);
 
         while (_stopSpawning == false)
         {
-            Vector3 posToSpawn = new Vector3(Random.Range(-12f, 12f), 25, 0);
-            GameObject newEnemy = Instantiate(_enemyPrefab, posToSpawn, Quaternion.identity);
+            Vector3 posToSpawn = new Vector3(Random.Range(-7.5f, 7.5f), 28, 0);
+            GameObject newEnemy = Instantiate(_enemyPrefab[Random.Range(0, 2)], posToSpawn, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(45f);
         }      
-    }*/
+    }
 
     public void OnPlayerDeath()
     {
         _stopSpawning = true;
     }
 
-    IEnumerator SpawnPowerupRoutine()
+    /*IEnumerator SpawnPowerupRoutine()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
 
-        while (_stopSpawning == false)
+        while (true)
         {
-            int randomPowerup = Random.Range(1, 3);
+            int randomPowerup = Random.Range(1, 4);
             Vector3 posToSpawn = new Vector3(Random.Range(-9f, 9f), 25, 0);
             GameObject newPowerup = Instantiate(_powerups[randomPowerup], posToSpawn, Quaternion.identity);
             newPowerup.transform.parent = _powerupContainer.transform;
-            yield return new WaitForSeconds(75f);
+            StopCoroutine(SpawnPowerupRoutine());
+            yield return new WaitForSeconds(10f);
         }
     }
 
@@ -66,5 +67,5 @@ public class SpawnManager : MonoBehaviour
             newPowerup.transform.parent = _powerupContainer.transform;
             yield return new WaitForSeconds(100f);
         }
-    }
+    }*/
 }

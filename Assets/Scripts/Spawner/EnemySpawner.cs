@@ -18,6 +18,11 @@ namespace Spawner
         [SerializeField] List<EnemyType> enemyTypesT2;
         int enemiesSpawnedT2;
 
+        [SerializeField] int maxEnemiesT3 = 5;
+        [SerializeField] float spawnIntervalT3 = 20f;
+        [SerializeField] List<EnemyType> enemyTypesT3;
+        int enemiesSpawnedT3;
+
         [SerializeField] List<SplineContainer> splines;
         EnemyFactory enemyFactory;
 
@@ -36,6 +41,7 @@ namespace Spawner
             enemyFactory = new EnemyFactory();
             StartCoroutine(SpawnEnemyRoutine1());
             StartCoroutine(SpawnEnemyRoutine2());
+            StartCoroutine(SpawnEnemyRoutine3());
             StartCoroutine(SpeedIncrease());
             StartCoroutine(PhaseControl());
         }
@@ -59,6 +65,14 @@ namespace Spawner
                     spawnTimer = 0f;
                 }
             }
+
+            if (enemiesSpawnedT3 < maxEnemiesT3 && spawnTimer >= spawnIntervalT3)
+            {
+                if (stopSpawning == false)
+                {
+                    spawnTimer = 0f;
+                }
+            }
         }
 
         IEnumerator SpawnEnemyRoutine1()
@@ -72,7 +86,7 @@ namespace Spawner
                 // TODO: Possible optimization - pool enemies
                 enemyFactory.CreateEnemy(enemyType, spline);
                 enemiesSpawnedT1++;
-                yield return new WaitForSeconds(spawnIntervalT1);
+                yield return new WaitForSeconds(spawnIntervalT1 + .75f);
             }
         }
 
@@ -85,7 +99,7 @@ namespace Spawner
                 // TODO: Possible optimization - pool enemies
                 enemyFactory.CreateEnemy(enemyType, spline);
                 enemiesSpawnedT1++;
-                yield return new WaitForSeconds(spawnIntervalT1);
+                yield return new WaitForSeconds(spawnIntervalT1 + .35f);
             }
         }
 
@@ -113,7 +127,7 @@ namespace Spawner
                 // TODO: Possible optimization - pool enemies
                 enemyFactory.CreateEnemy(enemyType, spline);
                 enemiesSpawnedT2++;
-                yield return new WaitForSeconds(spawnIntervalT2);
+                yield return new WaitForSeconds(spawnIntervalT2 + 1f);
             }
         }
 
@@ -128,7 +142,7 @@ namespace Spawner
                 // TODO: Possible optimization - pool enemies
                 enemyFactory.CreateEnemy(enemyType, spline);
                 enemiesSpawnedT2++;
-                yield return new WaitForSeconds(spawnIntervalT2);
+                yield return new WaitForSeconds(spawnIntervalT2 + .5f);
             }
         }
 
@@ -144,6 +158,47 @@ namespace Spawner
                 enemyFactory.CreateEnemy(enemyType, spline);
                 enemiesSpawnedT2++;
                 yield return new WaitForSeconds(spawnIntervalT2);
+            }
+        }
+
+        IEnumerator SpawnEnemyRoutine3()
+        {
+            yield return new WaitForSeconds(45f);
+
+            while (stopSpawning == false)
+            {
+                EnemyType enemyType = enemyTypesT3[Random.Range(0, 2)];
+                SplineContainer spline = splines[Random.Range(14, 15)];
+                // TODO: Possible optimization - pool enemies
+                enemyFactory.CreateEnemy(enemyType, spline);
+                enemiesSpawnedT3++;
+                yield return new WaitForSeconds(spawnIntervalT3);
+            }
+        }
+
+        IEnumerator SpawnEnemyRoutine3P2()
+        {
+            while (stopSpawning == false)
+            {
+                EnemyType enemyType = enemyTypesT3[Random.Range(3, 5)];
+                SplineContainer spline = splines[Random.Range(14, 15)];
+                // TODO: Possible optimization - pool enemies
+                enemyFactory.CreateEnemy(enemyType, spline);
+                enemiesSpawnedT3++;
+                yield return new WaitForSeconds(spawnIntervalT3);
+            }
+        }
+
+        IEnumerator SpawnEnemyRoutine3P3()
+        {
+            while (stopSpawning == false)
+            {
+                EnemyType enemyType = enemyTypesT3[Random.Range(6, 8)];
+                SplineContainer spline = splines[Random.Range(14, 15)];
+                // TODO: Possible optimization - pool enemies
+                enemyFactory.CreateEnemy(enemyType, spline);
+                enemiesSpawnedT3++;
+                yield return new WaitForSeconds(spawnIntervalT3);
             }
         }
 
@@ -174,16 +229,20 @@ namespace Spawner
         {
             while (stopSpawning == false)
             {
-                yield return new WaitForSeconds(300f);
+                yield return new WaitForSeconds(180f);
                 StopCoroutine(SpawnEnemyRoutine1());
                 StopCoroutine(SpawnEnemyRoutine2());
+                StopCoroutine(SpawnEnemyRoutine3());
                 StartCoroutine(SpawnEnemyRoutine1P2());
                 StartCoroutine(SpawnEnemyRoutine2P2());
-                yield return new WaitForSeconds(300f);
+                StartCoroutine(SpawnEnemyRoutine3P2());
+                yield return new WaitForSeconds(180f);
                 StopCoroutine(SpawnEnemyRoutine1P2());
                 StopCoroutine(SpawnEnemyRoutine2P2());
+                StopCoroutine(SpawnEnemyRoutine3P2());
                 StartCoroutine(SpawnEnemyRoutine1P3());
                 StartCoroutine(SpawnEnemyRoutine2P3());
+                StartCoroutine(SpawnEnemyRoutine3P3());
                 StopCoroutine(PhaseControl());
             }
         }

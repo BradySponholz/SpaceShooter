@@ -13,7 +13,7 @@ namespace Spawner
                 .SetSpline(spline)
                 .SetSpeed(enemyType.speed);
 
-            //Weapon in P3
+            
 
             return builder.Build();
         }

@@ -34,7 +34,7 @@ public class CityScape : MonoBehaviour
     {
         while (keepPlaying == true)
         {
-            yield return new WaitForSeconds(30f);
+            yield return new WaitForSeconds(20f);
             _time++;
             speed = 1.3f + (_time * _gameSpeed);
         }

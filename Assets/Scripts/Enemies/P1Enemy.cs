@@ -5,16 +5,17 @@ using UnityEngine;
 public class P1Enemy : MonoBehaviour
 {
     [SerializeField]
-    private int _lives = 2;
+    private int _lives = 4;
     private Player _player;
-    private Animator _explosion;
-    private PolygonCollider2D _collider;
     [SerializeField]
-    private AudioSource _audioSource;
+    private GameObject _explosion;
+    private PolygonCollider2D _collider;
     //[SerializeField]
     //private GameObject _coin;
     private UIManager _uiManager;
     private FlashDamage _flash;
+    [SerializeField]
+    private AudioSource _audioSource;
 
     void Start()
     {
@@ -24,28 +25,22 @@ public class P1Enemy : MonoBehaviour
             Debug.LogError("The Player is NULL.");
         }
 
-        _explosion = GetComponent<Animator>();
-        if (_explosion == null)
-        {
-            Debug.LogError("The animator is NULL.");
-        }
-
         _collider = GetComponent<PolygonCollider2D>();
         if (_collider == null)
         {
             Debug.LogError("The collider is NULL.");
         }
 
-        _audioSource = GetComponent<AudioSource>();
-        if (_audioSource == null)
-        {
-            Debug.LogError("The AudioSource is NULL.");
-        }
-
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         if (_uiManager == null)
         {
             Debug.LogError("The UIManager is NULL");
+        }
+
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+        {
+            Debug.LogError("The AudioSource is NULL.");
         }
 
         _flash = GetComponent<FlashDamage>();
@@ -77,6 +72,13 @@ public class P1Enemy : MonoBehaviour
             Destroy(other.gameObject);
             Damage();
         }
+
+        if (other.tag == "Missile")
+        {
+            Destroy(other.gameObject);
+            _audioSource.Play();
+            ObjectDeath();
+        }
     }
 
     public void Damage()
@@ -99,11 +101,9 @@ public class P1Enemy : MonoBehaviour
 
     public void ObjectDeath()
     {
-        _explosion.SetTrigger("EnemyDeath");
-        _audioSource.Play();
+        Instantiate(_explosion, transform.position, Quaternion.identity);
         _collider.enabled = false;
         _uiManager.IncreaseScore(100);
-        //Instantiate(_coin, transform.position, Quaternion.identity);
-        Destroy(this.gameObject, 0.55f);
+        Destroy(this.gameObject);
     }
 }

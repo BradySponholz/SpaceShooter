@@ -40,6 +40,9 @@ public class Powerup : MonoBehaviour
                         player.SpeedShotActive();
                         break;
                     case 2:
+                        player.MissleActive();
+                        break;
+                    case 3:
                         player.ShieldActive();
                         break;
                     default:

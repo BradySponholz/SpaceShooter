@@ -14,38 +14,37 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject[] _shotType;
     [SerializeField]
-    private GameObject[] _timer;
-    private GameObject _sTimer;
+    private GameObject[] _missileType;
     [SerializeField]
     private GameObject _shield;
     [SerializeField]
     private float _fireRate = .4f;
     private float _nextFire = .4f;
     private float _fireSpeedBoost = 1.1f;
-    //private int _time = 0;
-    //private float _gameSpeed = .25f;
-    //private float _timeAdjust = .1f;
-    //private int _gameRate = 0;
-    //private float _gameAdjust = 0;
     [SerializeField]
-    private int _lives = 1;
+    private float _fireRateMissile = 1.7f;
+    private float _nextFireMissile = 1.7f;
+    [SerializeField]
+    private int _lives = 3;
     private SpawnManager _spawnManager;
     private EnemySpawner _enemySpawner;
     private bool _isSpeedShotActive = false;
     private bool _isShieldActive = false;
+    private bool _isMissileActive = false;
     private int _shotCount = 0;
     private int _speedCount = 0;
+    private int _missleCount = 0;
     [SerializeField]
     private int _coins;
     private UIManager _uiManager;
     private Animator _animator;
     private PolygonCollider2D _collider;
     [SerializeField]
+    private GameObject _explosion;
+    [SerializeField]
+    private GameObject _explosionHit;
+    [SerializeField]
     private AudioClip _laserClip;
-    [SerializeField]
-    private AudioClip _explosionClip;
-    [SerializeField]
-    private AudioClip _damageClip;
     [SerializeField]
     private AudioSource _audioSource;
     [SerializeField]
@@ -95,14 +94,13 @@ public class Player : MonoBehaviour
         {
             _audioSource.clip = _laserClip;
         }
-
-        //StartCoroutine(GameSpeedAdjustment());
     }
 
     void Update()
     {
         CalculateMovement();
         AutoFire();
+        MissileFire();
     }
 
     // Player movement and boundry limits
@@ -113,15 +111,16 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -20f, 21f), 0);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -15.5f, 15.5f), transform.position.y, 0);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -16f, 17.5f), 0);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -13f, 13f), transform.position.y, 0);
     }
 
-    //Autofire on MouseButton Hold
+    //Autofire
     void AutoFire()
     {
         if (Time.time > _nextFire)
         {
+            //LaserShot
             if (_shotCount > 3)
             {
                 Instantiate(_shotType[4], transform.position, Quaternion.identity);
@@ -143,6 +142,7 @@ public class Player : MonoBehaviour
                 Instantiate(_shotType[0], transform.position, Quaternion.identity);
             }
 
+            //SpeedShotActive
             if (_isSpeedShotActive == true)
             {
                 _nextFire = Time.time + _fireRate / _fireSpeedBoost / _speedCount;
@@ -155,9 +155,35 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void LoadTimer()
+    void MissileFire()
     {
-        _sTimer = Instantiate(_timer[0]);
+        if (Time.time > _nextFireMissile && _isMissileActive == true)
+        {
+            if (_missleCount > 2)
+            {
+                Instantiate(_missileType[2], transform.position, Quaternion.identity);
+            }
+
+            else if (_missleCount > 1)
+            {
+                Instantiate(_missileType[1], transform.position, Quaternion.identity);
+            }
+
+            else
+            {
+                Instantiate(_missileType[0], transform.position, Quaternion.identity);
+            }
+
+            if (_isSpeedShotActive == true)
+            {
+                _nextFireMissile = Time.time + _fireRateMissile / _fireSpeedBoost / _speedCount;
+            }
+            else
+            {
+                _nextFireMissile = Time.time + _fireRateMissile;
+            }
+            _audioSource.Play();
+        }
     }
 
     //Damage behavior
@@ -167,7 +193,7 @@ public class Player : MonoBehaviour
         {
             _isShieldActive = false;
             _shield.SetActive(false);
-            Destroy(_sTimer);
+            Instantiate(_explosionHit, transform.position, Quaternion.identity);
             return;
         }
 
@@ -175,7 +201,7 @@ public class Player : MonoBehaviour
         _shotCount = 0;
         _speedCount = 0;
         _isSpeedShotActive = false;
-        AudioSource.PlayClipAtPoint(_damageClip, transform.position);
+        Instantiate(_explosionHit, transform.position, Quaternion.identity);
 
         _uiManager.UpdateLife(_lives);
 
@@ -183,10 +209,9 @@ public class Player : MonoBehaviour
         {
             _spawnManager.OnPlayerDeath();
             _enemySpawner.OnPlayerDeath();
-            _animator.SetTrigger("PlayerDeath");
-            AudioSource.PlayClipAtPoint(_explosionClip, transform.position);
+            Instantiate(_explosion, transform.position, Quaternion.identity);
             _collider.enabled = false;
-            Destroy(this.gameObject, 0.55f);
+            Destroy(this.gameObject);
         }
     }
 
@@ -202,12 +227,16 @@ public class Player : MonoBehaviour
         _isSpeedShotActive = true;
     }
 
+    public void MissleActive()
+    {
+        _missleCount++;
+        _isMissileActive = true;
+    }
+
     public void ShieldActive()
     {
         _isShieldActive = true;
         _shield.SetActive(true);
-        LoadTimer();
-        StartCoroutine(ShieldPowerDown());
     }
 
     public void AddCoins(int coins)
@@ -215,23 +244,4 @@ public class Player : MonoBehaviour
         _coins += coins;
         _uiManager.UpdateCoins(_coins);
     }
-
-    IEnumerator ShieldPowerDown()
-    {
-        yield return new WaitForSeconds(30f);
-        _isShieldActive = false;
-        _shield.SetActive(false);
-    }
-
-    /*IEnumerator GameSpeedAdjustment()
-    {
-        while (_fireRate > 0)
-        {
-            yield return new WaitForSeconds(25);
-            _time++;
-            _gameRate++;
-            _gameAdjust = _gameRate * .3f; 
-            _fireRate = .4f - (_time * _gameSpeed * _timeAdjust * _gameAdjust);
-        }
-    }*/
 }

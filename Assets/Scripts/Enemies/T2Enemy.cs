@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class T2Enemy : MonoBehaviour
 {
     [SerializeField]
-    private int _lives = 5;
+    private int _lives = 9;
     private Player _player;
-    private Animator _explosion;
-    private PolygonCollider2D _collider;
     [SerializeField]
-    private AudioSource _audioSource;
+    private GameObject _explosion;
+    private PolygonCollider2D _collider;
     [SerializeField]
     private GameObject _coin;
     private UIManager _uiManager;
@@ -20,9 +20,11 @@ public class T2Enemy : MonoBehaviour
     [SerializeField]
     private GameObject _enemyMissle;
     private int _startFire = 0;
-    private int _missleCount = 0;
-    private int _laserCount = 0;
+    //private int _missleCount = 0;
+    //private int _laserCount = 0;
     private bool _stopSpawning = false;
+    [SerializeField]
+    private AudioSource _audioSource;
 
     void Start()
     {
@@ -32,28 +34,22 @@ public class T2Enemy : MonoBehaviour
             Debug.LogError("The Player is NULL.");
         }
 
-        _explosion = GetComponent<Animator>();
-        if (_explosion == null)
-        {
-            Debug.LogError("The animator is NULL.");
-        }
-
         _collider = GetComponent<PolygonCollider2D>();
         if (_collider == null)
         {
             Debug.LogError("The collider is NULL.");
         }
 
-        _audioSource = GetComponent<AudioSource>();
-        if (_audioSource == null)
-        {
-            Debug.LogError("The AudioSource is NULL.");
-        }
-
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         if (_uiManager == null)
         {
             Debug.LogError("The UIManager is NULL");
+        }
+
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+        {
+            Debug.LogError("The AudioSource is NULL.");
         }
 
         _flash = GetComponent<FlashDamage>();
@@ -64,7 +60,7 @@ public class T2Enemy : MonoBehaviour
         if (transform.position.y < 17f && _startFire < 1)
         {
             StartCoroutine(FireLaser());
-            StartCoroutine(FireMissle());
+            //StartCoroutine(FireMissle());
             _startFire++;
         }
 
@@ -98,6 +94,14 @@ public class T2Enemy : MonoBehaviour
             Destroy(other.gameObject);
             Damage();
         }
+
+        if (other.tag == "Missile")
+        {
+            Destroy(other.gameObject);
+            _audioSource.Play();
+            Damage();
+            Damage();
+        }
     }
 
     public void Damage()
@@ -120,34 +124,46 @@ public class T2Enemy : MonoBehaviour
 
     IEnumerator FireLaser()
     {
-        while (_stopSpawning == false && _laserCount < 5)
+        yield return new WaitForSeconds(.1f);
+
+        while (_stopSpawning == false)
+        {
+            Instantiate(_enemyLaser, transform.position, transform.rotation);
+            yield return new WaitForSeconds(.3f);
+            Instantiate(_enemyLaser, transform.position, transform.rotation);
+            yield return new WaitForSeconds(.3f);
+            Instantiate(_enemyLaser, transform.position, transform.rotation);
+            yield return new WaitForSeconds(1.5f);
+        }
+        /*yield return new WaitForSeconds(.5f);
+
+        while (_stopSpawning == false && _laserCount < 3)
         {
             Instantiate(_enemyLaser, transform.position, transform.rotation);
             _laserCount++;
-            yield return new WaitForSeconds(1.5f);
-        }
+            yield return new WaitForSeconds(.25f);
+        }*/
     }
 
-    IEnumerator FireMissle()
+    /*IEnumerator FireMissle()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.2f);
 
-        while (_stopSpawning == false && _missleCount < 2)
+        while (_stopSpawning == false && _missleCount < 1)
         {
             Instantiate(_enemyMissle, transform.position, transform.rotation);
             _missleCount++;
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(3.2f);
         }
-    }
+    }*/
 
     public void ObjectDeath()
     {
         _stopSpawning = true;
-        _explosion.SetTrigger("EnemyDeath");
-        _audioSource.Play();
+        Instantiate(_explosion, transform.position, Quaternion.identity);
         _collider.enabled = false;
         _uiManager.IncreaseScore(500);
         Instantiate(_coin, transform.position, Quaternion.identity);
-        Destroy(this.gameObject, 0.55f);
+        Destroy(this.gameObject);
     }
 }

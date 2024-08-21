@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyLaser : MonoBehaviour
 {
     private BoxCollider2D _collider;
-    private Player _player;
     [SerializeField]
     private float _speed = 12f;
 
@@ -15,12 +14,6 @@ public class EnemyLaser : MonoBehaviour
         if (_collider == null)
         {
             Debug.LogError("The collider is NULL.");
-        }
-
-        _player = GameObject.Find("Player").GetComponent<Player>();
-        if (_player == null)
-        {
-            Debug.LogError("The Player is NULL.");
         }
     }
 

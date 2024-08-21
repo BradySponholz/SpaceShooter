@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4408459481416227100}
@@ -318,8 +318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6debae14a35eb7b4babac03dd2225ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lives: 2
-  _audioSource: {fileID: 4618607634881418443}
+  _lives: 4
+  _explosion: {fileID: 7974129368473279743, guid: 80009d5e1bbf18745ab7864bc82ccee9, type: 3}
+  _audioSource: {fileID: 0}
 --- !u!95 &1006819924905043971
 Animator:
   serializedVersion: 5
@@ -368,7 +369,7 @@ Transform:
   m_GameObject: {fileID: 6452876979117255410}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0.1, y: 0.3, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

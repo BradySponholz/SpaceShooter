@@ -32,65 +32,6 @@ public class EnemyMissle : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    /*private void FixedUpdate()
-    {
-        if (_target != null)
-        {
-            Vector3 _direction = _playerStartPos - (Vector3)_rb.position;
-            _direction.Normalize();
-            Vector3 transformDown = transform.up * -1;
-            float rotateAmount = Vector3.Cross(_direction, transformDown).z;
-            _rb.angularVelocity = -rotateAmount * _rotateSpeed;
-            _rb.velocity = transformDown * _speed;
-        }
-        else
-        {
-            _rb.velocity = _direction * _speed * Time.deltaTime;
-            _rb.angularVelocity = 0;
-        }
-
-    Vector3 _direction = _playerStartPos - (Vector3)_rb.position;
-            _direction.Normalize();
-            Vector3 transformDown = transform.up * -1;
-            float rotateAmount = Vector3.Cross(_direction, transformDown).z;
-            _rb.angularVelocity = -rotateAmount * _rotateSpeed;
-            _rb.velocity = transformDown * _speed;
-            transform.position = Vector3.MoveTowards(transform.position, _playerStartPos, _speed * Time.deltaTime);
-
-    }
-
-    void FixedUpdate()
-    {
-        if (_player != null)
-        {
-            Vector2 direction = _rb.position - _playerStartPos;
-            direction.Normalize();
-            float rotateAmount = Vector3.Cross(direction, _rb.transform.up).z;
-            _rb.angularVelocity = -rotateAmount * _rotateSpeed;
-            _rb.velocity = transform.up * _speed;
-            Quaternion rotation = Quaternion.LookRotation(forward: direction, upwards: Vector3.up);
-            transform.rotation = Quaternion.Slerp(a: transform.rotation, b: rotation, t: _rotateSpeed * Time.deltaTime);
-
-            if ((Vector2)transform.position == _playerStartPos)
-            {
-                transform.Translate(_rb.transform.up * _speed * Time.deltaTime);
-            }
-        }
-        else
-        {
-            transform.Translate(_rb.transform.up *_speed * Time.deltaTime);
-        }
-
-        if (transform.position.y > 25 | transform.position.y < -25 | transform.position.x > 22 | transform.position.x < -22)
-        {
-            if (transform.parent != null)
-            {
-                Destroy(transform.parent.gameObject);
-            }
-            Destroy(this.gameObject);
-        }
-    }*/
-
     private void Update()
     {
         if (_player != null)
@@ -118,23 +59,6 @@ public class EnemyMissle : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-
-    /*private void FixedUpdate()
-    {
-        if (_isTracking == true)
-        {
-            _rb.velocity = transform.up * _speed;
-            Vector3 direction = (_target.position - transform.position).normalized;
-            float rotationSteer = Vector3.Cross(transform.up, direction).z;
-            _rb.angularVelocity = rotationSteer * _steer * 10;
-        }
-
-        else
-        {
-            transform.position += transform.up * _speed;
-        }
-    }*/
 
     void OnTriggerEnter2D(Collider2D other)
     {

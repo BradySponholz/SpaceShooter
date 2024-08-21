@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1092338347904869759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0.1, y: 0.3, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -140,11 +140,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2.5, z: 1}
+  m_LocalScale: {x: 2.5, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2013434263692705100}
-  - {fileID: 6086148718647535873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5678776765706959218
@@ -423,11 +422,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2996571f2b93a4c8d08a4c23f64640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lives: 5
-  _audioSource: {fileID: 1343254884945970938}
+  _lives: 9
+  _explosion: {fileID: 7974129368473279743, guid: 80009d5e1bbf18745ab7864bc82ccee9, type: 3}
   _coin: {fileID: 9033789203686937116, guid: 3a1855c8d1b661241a8671161afed7e6, type: 3}
   _enemyLaser: {fileID: 4595614244049783143, guid: a1adcf8db3e754e4ba003fd643735258, type: 3}
   _enemyMissle: {fileID: 6207982391612593390, guid: 17d22147419d00249aeaec86ed592ec7, type: 3}
+  _audioSource: {fileID: 0}
 --- !u!95 &5228210415090164056
 Animator:
   serializedVersion: 5
@@ -449,34 +449,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &3142230828247892601
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6086148718647535873}
-  m_Layer: 8
-  m_Name: firePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6086148718647535873
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3142230828247892601}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.592, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2381727418756792220}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

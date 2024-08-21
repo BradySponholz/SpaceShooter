@@ -19,10 +19,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text _coinText;
     private string _coinLength = "000000";
-    //[SerializeField]
-    //private Image _lifeImage;
-    //[SerializeField]
-    //private Sprite[] _lifeSprites;
+    [SerializeField]
+    private Image _lifeImage;
+    [SerializeField]
+    private Sprite[] _lifeSprites;
     [SerializeField]
     private TMP_Text _gameOverText;
     [SerializeField]
@@ -165,7 +165,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLife(int currentLife)
     {
-        //_lifeImage.sprite = _lifeSprites[currentLife];
+        _lifeImage.sprite = _lifeSprites[currentLife];
 
         if (currentLife == 0)
         {
@@ -260,16 +260,16 @@ public class UIManager : MonoBehaviour
     {
         while (_keepScore == true)
         {
-            yield return new WaitForSeconds(300);
+            yield return new WaitForSeconds(180);
             StopCoroutine(UpdateScore());
             StartCoroutine(UpdateScore2());
-            yield return new WaitForSeconds(300);
+            yield return new WaitForSeconds(180);
             StopCoroutine(UpdateScore2());
             StartCoroutine(UpdateScore3());
-            yield return new WaitForSeconds(300);
+            yield return new WaitForSeconds(180);
             StopCoroutine(UpdateScore3());
             StartCoroutine(UpdateScore4());
-            yield return new WaitForSeconds(300);
+            yield return new WaitForSeconds(180);
             StartCoroutine(UpdateScoreRepeat());
             StopCoroutine(GameScoreSpeed());
         }
@@ -279,7 +279,7 @@ public class UIManager : MonoBehaviour
     {
         while (_keepScore == true)
         {
-            yield return new WaitForSeconds(300);
+            yield return new WaitForSeconds(240);
             StartCoroutine(UpdateScore());
         }
     }

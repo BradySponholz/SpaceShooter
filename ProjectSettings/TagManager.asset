@@ -8,6 +8,7 @@ TagManager:
   - Laser
   - Timer
   - SplineContainer
+  - Missile
   layers:
   - Default
   - TransparentFX
