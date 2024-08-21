@@ -93,8 +93,9 @@ public class T3Enemy : MonoBehaviour
         {
             Destroy(other.gameObject);
             _audioSource.Play();
+            _lives--;
             Damage();
-            Damage();
+;
         }
     }
 

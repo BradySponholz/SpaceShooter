@@ -25601,6 +25601,12 @@ MonoBehaviour:
   _scoreText: {fileID: 254847619}
   _highScoreText: {fileID: 600210893}
   _coinText: {fileID: 733633131}
+  _lifeImage: {fileID: 1273869977}
+  _lifeSprites:
+  - {fileID: 21300000, guid: a9926d9939a4664448ffaea23f4682a8, type: 3}
+  - {fileID: 21300000, guid: 1074b6c32174b804b8cbed7098f55371, type: 3}
+  - {fileID: 21300000, guid: addbc7dd9bdda28439a8462a94216113, type: 3}
+  - {fileID: 21300000, guid: fc7927476c6971d46a08dea082867024, type: 3}
   _gameOverText: {fileID: 910364929}
   _getReadyText: {fileID: 644635280}
   _endGameText: {fileID: 1010331841}
@@ -26197,7 +26203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &330980750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26221,14 +26227,13 @@ MonoBehaviour:
   - {fileID: 2655756640851153289, guid: 8e289446b6095f2468c72e7ad208e9e9, type: 3}
   - {fileID: 4371187361186205989, guid: 4302657f5b9d27547a2bc3acdbd99edb, type: 3}
   - {fileID: 1247081749859271382, guid: ea8fe14e20e9b494e952ba43092a1892, type: 3}
-  _timer:
-  - {fileID: 666690987205889429, guid: 18e026c5cd48b2e4c99b15feff5377c3, type: 3}
   _shield: {fileID: 1345764551}
   _fireRate: 0.3
   _fireRateMissile: 1.7
-  _lives: 1
+  _lives: 3
   _coins: 0
   _explosion: {fileID: 4185056436780198449, guid: 5c8aa2526a8b7bc49b7a8188d577cabb, type: 3}
+  _explosionHit: {fileID: 7974129368473279743, guid: 80009d5e1bbf18745ab7864bc82ccee9, type: 3}
   _laserClip: {fileID: 8300000, guid: 2b6e03a12758468479f413988b81133a, type: 3}
   _audioSource: {fileID: 330980755}
   _moveActionToUse: {fileID: 1344252478465124080, guid: 50a5ae21ce2285043ad4c1a5dd7b9355, type: 3}
@@ -26395,7 +26400,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.137
+  m_Volume: 0.065
   m_Pitch: 1.36
   Loop: 0
   Mute: 0
@@ -31616,7 +31621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1273869976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31865,7 +31870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1345764554}
   - component: {fileID: 1345764553}
-  - component: {fileID: 1345764552}
+  - component: {fileID: 1345764555}
   m_Layer: 7
   m_Name: Shield
   m_TagString: Untagged
@@ -31873,27 +31878,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!95 &1345764552
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345764551}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b3d69bcad894c204fbd5749d1dd685a9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1345764553
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -31961,6 +31945,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 330980752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1345764555
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345764551}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49e356d60247b6f40a84460641cf8392, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1354367645
 GameObject:
   m_ObjectHideFlags: 0

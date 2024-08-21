@@ -99,7 +99,7 @@ public class T2Enemy : MonoBehaviour
         {
             Destroy(other.gameObject);
             _audioSource.Play();
-            Damage();
+            _lives--;
             Damage();
         }
     }

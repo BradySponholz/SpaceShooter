@@ -13,8 +13,8 @@ public class PlayerMissile : MonoBehaviour
     private float _distanceToClosestEnemy;
     private GameObject _closestEnemy;
     private bool _closestEnemyFound = false;
-    [SerializeField]
-    private AudioSource _audioSource;
+    //[SerializeField]
+    //private AudioSource _audioSource;
 
     private void Start()
     {
@@ -24,11 +24,11 @@ public class PlayerMissile : MonoBehaviour
             Debug.LogError("The collider is NULL.");
         }
 
-        _audioSource = GetComponent<AudioSource>();
+        /*_audioSource = GetComponent<AudioSource>();
         if (_audioSource == null)
         {
             Debug.LogError("The AudioSource is NULL.");
-        }
+        }*/
 
         _enemy = GameObject.FindGameObjectsWithTag("Enemy");
         _rb = GetComponent<Rigidbody2D>();
